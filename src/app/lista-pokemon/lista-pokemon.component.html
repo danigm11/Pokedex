@@ -1,0 +1,10 @@
+<button (click)="cargaPokemon()">
+  Pulsa para mostrar un pokemon
+  </button>
+
+  <p>{{pokemon.name}}</p>
+  <hr>
+<p *ngFor="let Pokemon of listaPokemon">
+  <b>Nombre: {{ Pokemon.nombre }}</b><br>
+  <b>Número de la Pokedex: {{ Pokemon.num }}</b><br>
+</p>
