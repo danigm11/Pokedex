@@ -1,10 +1,13 @@
-<button (click)="cargaPokemon()">
-  Pulsa para mostrar un pokemon
-  </button>
 
-  <p>{{pokemon.name}}</p>
-  <hr>
-<p *ngFor="let Pokemon of listaPokemon">
-  <b>Nombre: {{ Pokemon.nombre }}</b><br>
-  <b>Número de la Pokedex: {{ Pokemon.num }}</b><br>
-</p>
+<button (click)="filtrarNombre()"> 🔍︎</button>
+<input type="text"  />
+  <div class="grid-container" > 
+    <div *ngFor="let Pokemon of listaPokemon">
+      <div class="poke">
+        <p class="numero"><b>Nº{{ Pokemon.num }}</b></p>
+        <img src="{{ Pokemon.imagen }}" alt="Texto alternativo de la imagen"><br>
+        <b class="nombre">{{ Pokemon.nombre }}</b><br>        
+        <b class="tipo">{{ Pokemon.tipos[0] }} {{ Pokemon.tipos[1]}}</b>
+      </div>
+    </div>
+  </div>
