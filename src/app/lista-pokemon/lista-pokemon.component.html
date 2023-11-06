@@ -1,12 +1,31 @@
-<button (click)="cargaPokemon();"> Reset</button>
-<input type="text" [(ngModel)]="filtroNombre" (keyup)=" filtrarNombre()"/>
-  <div class="grid-container" > 
-    <div *ngFor="let Pokemon of listaPokemon">
-      <div class="poke">
-        <p class="numero"><b>Nº{{ Pokemon.num < 10 ? '00' : Pokemon.num < 100 ? '0' : '' }}{{ Pokemon.num }}</b></p>
-        <img src="{{ Pokemon.imagen }}" alt="Texto alternativo de la imagen"><br>
-        <b class="nombre">{{ Pokemon.nombre }}</b><br>        
-        <b class="tipo">{{ Pokemon.tipos[0] }} {{ Pokemon.tipos[1]}}</b>
+<button (click)="cargaPokemon()">Reset</button>
+<input type="text" [(ngModel)]="filtroNombre" (keyup)="filtrarNombre()" />
+<div class="grid-container">
+  <div *ngFor="let Pokemon of listaPokemon">
+    <div class="poke">
+      <p class="numero">
+        <b
+          >Nº{{ Pokemon.num < 10 ? "00" : Pokemon.num < 100 ? "0" : ""
+          }}{{ Pokemon.num }}</b
+        >
+      </p>
+      <img
+        class="imagen"
+        src="{{ Pokemon.imagen }}"
+        alt="Texto alternativo de la imagen"
+      /><br />
+      <b class="nombre">{{ Pokemon.nombre }}</b
+      ><br />
+      <div class="type">
+        <b [ngClass]="Pokemon.tipos[0].toLowerCase()">
+          {{ Pokemon.tipos[0] }}
+        </b>
+        <b *ngIf="Pokemon.tipos[1] != null">
+          <b [ngClass]="['tipo2', Pokemon.tipos[1].toLowerCase()]">
+            {{ Pokemon.tipos[1] }}
+          </b>
+        </b>
       </div>
     </div>
   </div>
+</div>

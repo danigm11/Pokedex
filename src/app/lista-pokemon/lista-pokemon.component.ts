@@ -12,19 +12,19 @@ export class ListaPokemonComponent implements OnInit {
   listaAux: Pokemon[] = [];
   filtroNombre: string = '';
   numeroInicial: number = 1;
-  numeroPokemon: number = 151;
+  numeroPokemon: number = 493;
 
   constructor(private pokemonService: PokemonServiceService) {}
   ngOnInit(): void {
     this.cargaPokemon();
   }
   cargaPokemon() {
-    this.listaPokemon= [];
+    this.listaPokemon = [];
     this.pokemonService.getPokemons().subscribe((pokemons: Pokemon[]) => {
       for (let i = this.numeroInicial; i <= this.numeroPokemon; i++) {
         this.listaPokemon.push(pokemons[i - 1]);
       }
-      this.listaAux=this.listaPokemon
+      this.listaAux = this.listaPokemon;
     });
   }
 
