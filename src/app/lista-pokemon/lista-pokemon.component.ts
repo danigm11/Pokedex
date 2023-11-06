@@ -8,29 +8,58 @@ import { Pokemon } from '../model/pokemon';
   styleUrls: ['./lista-pokemon.component.css'],
 })
 export class ListaPokemonComponent implements OnInit {
-  listaPokemon: Pokemon[] = [];
+  listaTodo: Pokemon[] = [];
+  listaMostrada: Pokemon[] = [];
   listaAux: Pokemon[] = [];
   filtroNombre: string = '';
   numeroInicial: number = 1;
-  numeroPokemon: number = 493;
+  numeroPokemon: number = 151;
 
   constructor(private pokemonService: PokemonServiceService) {}
   ngOnInit(): void {
     this.cargaPokemon();
   }
   cargaPokemon() {
-    this.listaPokemon = [];
     this.pokemonService.getPokemons().subscribe((pokemons: Pokemon[]) => {
-      for (let i = this.numeroInicial; i <= this.numeroPokemon; i++) {
-        this.listaPokemon.push(pokemons[i - 1]);
-      }
-      this.listaAux = this.listaPokemon;
+      this.listaMostrada = pokemons.filter((Pokemon) =>
+      (Pokemon.num<=this.numeroPokemon)&&(Pokemon.num>=this.numeroInicial)
+    );
+      this.listaAux = this.listaMostrada;
+      this.listaTodo = pokemons;
     });
   }
 
   filtrarNombre() {
-    this.listaPokemon = this.listaAux.filter((Pokemon) =>
+    this.listaMostrada = this.listaAux.filter((Pokemon) =>
       Pokemon.nombre.includes(this.filtroNombre.toLowerCase())
     );
+  }
+  filtrarGen(n: number) {
+    switch(n){
+      case 1:{
+        this.numeroInicial= 1;
+        this.numeroPokemon = 151;
+        break;
+      }
+      case 2:{
+        this.numeroInicial= 152;
+        this.numeroPokemon = 251;
+        break;
+      }
+      case 3:{
+        this.numeroInicial= 252;
+        this.numeroPokemon = 386;
+        break;
+      }
+      case 4:{
+        this.numeroInicial= 387;
+        this.numeroPokemon = 493;
+        break;
+      }
+    }
+    this.listaMostrada = this.listaTodo.filter((Pokemon) =>
+      (Pokemon.num<=this.numeroPokemon)&&(Pokemon.num>=this.numeroInicial)
+    );
+    this.listaAux = this.listaMostrada;
   }
 }

@@ -1,1 +1,1 @@
-<button id="botonFijo" (click)="scrollToTop()">Volver Arriba</button>
+<ng-container (window:scroll)="onScroll()"></ng-container><button id="botonFijo" *ngIf="mostrarBoton" (click)="scrollToTop()">⇧</button>
