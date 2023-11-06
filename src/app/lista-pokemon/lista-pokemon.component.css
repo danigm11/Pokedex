@@ -1,12 +1,15 @@
-
+.body{
+  background-color: #58C8E0;
+}
 .grid-container {
   display: grid;
-  grid-gap: 10px;
+  column-gap: 0%;
   grid-template-columns: repeat(4, 1fr);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1112px) {
   .grid-container {
+      grid-gap: 10%;
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -18,10 +21,14 @@
 }
 
 
+
 .numero {
+  padding-left: 7px;
   text-align: left;
-  background-color: whitesmoke;
-  width: 50px
+  background-color: grey;
+  width: 30px;
+  border-radius: 10px;
+  border-color: #222224;
 }
 
 .nombre {
@@ -29,8 +36,9 @@
 }
 
 .type {
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 30%;
+  padding-right: 30%;
+
 }
 
 .water {
@@ -191,7 +199,7 @@
       size: 50px;
       text-transform: capitalize;
       border: solid 2px;
-      border-radius: 5px;
+      border-radius: 50px;
   background-color: #A8A8C0;
 }
 
@@ -200,11 +208,37 @@
 
   display: block;
   height: 330px;
-  border: 2px solid;
-  border-radius: 10px;
-  padding: 10px;
+  width: 330px;
+  border: 2px transparent crimson;
+  border-radius: 1000px;
   text-align: center;
-  background: linear-gradient(to bottom, #ee1515 0, #ee1515 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
+  background: linear-gradient(to bottom, crimson 0, #ee1515 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
+  /*background: linear-gradient(to bottom, 
+    #222224 0  ,#222224 15%,
+    #dfdf19 15%,#dfdf19 17%,
+    #222224 17%,#222224 18%,
+    #ee1515 18%,#ee1515 23%,
+    #222224 23%,#222224 24%,
+    #dfdf19 24%,#dfdf19 26%,
+    #222224 20%,#222224 45%,
+    #f0f0f0 45%,#f0f0f0 49%, 
+    #222224 49%,#222224 49.5%,
+    #dfdf19 50%,#dfdf19 60%,
+    #222224 60%,#222224 61%,
+    #f0f0f0 61%,#f0f0f0 65%,
+    #222224 65%,#222224 100% );*/
+} 
+
+.poke:hover {
+  animation: shake 2s cubic-bezier(.36, .07, .19, .97) both;
+  display: block;
+  height: 330px;
+  width: 330px;
+  border: 2px solid;
+  border-color:crimson;
+  border-radius: 1000px;
+  text-align: center;
+  background: linear-gradient(to bottom, crimson 0%, crimson 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
   /*background: linear-gradient(to bottom, 
     #222224 0  ,#222224 15%,
     #dfdf19 15%,#dfdf19 17%,
@@ -220,10 +254,55 @@
     #f0f0f0 61%,#f0f0f0 65%,
     #222224 65%,#222224 100% );*/
 
-   
 
-} 
+}
+.poke::selection{
+  background-color: #222224;
+}
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  10% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  20% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  30% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  40% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  50% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  60% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  70% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  80% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  90% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+}
 .imagen {
-        width: 200px;
-        height: 200px;
-      }
+  width: 200px;
+  height: 200px;
+  }
