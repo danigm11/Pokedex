@@ -14,6 +14,7 @@ export class ListaPokemonComponent implements OnInit {
   filtroNombre: string = '';
   numeroInicial: number = 1;
   numeroPokemon: number = 151;
+  ultimoPulsado: number =1;
 
   constructor(private pokemonService: PokemonServiceService) {}
   ngOnInit(): void {
@@ -56,10 +57,16 @@ export class ListaPokemonComponent implements OnInit {
         this.numeroPokemon = 493;
         break;
       }
+      case 5:{
+        this.numeroInicial= 1;
+        this.numeroPokemon = 493;
+        break;
+      }
     }
     this.listaMostrada = this.listaTodo.filter((Pokemon) =>
       (Pokemon.num<=this.numeroPokemon)&&(Pokemon.num>=this.numeroInicial)
     );
     this.listaAux = this.listaMostrada;
+    this.ultimoPulsado = n;
   }
 }

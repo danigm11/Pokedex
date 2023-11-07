@@ -1,17 +1,18 @@
 <div class="buscador">
-<button (click)="cargaPokemon()">Reset</button>
 <input type="text" placeholder="🔍︎"[(ngModel)]="filtroNombre" (keyup)="filtrarNombre()" />
-  <button value="Gen1" (click)="filtrarGen(1)">Gen1</button>
-  <button value="Gen2" (click)="filtrarGen(2)">Gen2</button>
-  <button value="Gen3" (click)="filtrarGen(3)">Gen3</button>
-  <button value="Gen4" (click)="filtrarGen(4)">Gen4</button>
+<button class="Gen1" [class.boton-activo]="ultimoPulsado == 1" (click)="filtrarGen(1)"><b>I</b></button>
+<button class="Gen2" [class.boton-activo]="ultimoPulsado == 2" (click)="filtrarGen(2)"><b>II</b></button>
+<button class="Gen3" [class.boton-activo]="ultimoPulsado == 3" (click)="filtrarGen(3)"><b>III</b></button>
+<button class="Gen4" [class.boton-activo]="ultimoPulsado == 4" (click)="filtrarGen(4)"><b>IV</b></button>
+<button class="Todas" [class.boton-activo]="ultimoPulsado == 5" (click)="filtrarGen(5)"><b>&nbsp;&nbsp;I - IV</b></button>
+
 </div>
 <div class="grid-container">
   <div *ngFor="let Pokemon of listaMostrada">
     <div class="poke">
       <p class="numero">
         <b
-          >Nº{{ Pokemon.num < 10 ? "00" : Pokemon.num < 100 ? "0" : ""
+          >{{ Pokemon.num < 10 ? "00" : Pokemon.num < 100 ? "0" : ""
           }}{{ Pokemon.num }}</b
         >
       </p>
