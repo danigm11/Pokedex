@@ -1,10 +1,15 @@
 .grid-container {
   display: grid;
-  
+  grid-gap: 0.2%;
   grid-template-columns: repeat(5, 1fr);
   padding: 3%;
+  font-family: 'Comic sans', 'Arial Narrow', Arial, sans-serif;
 }
-
+@media (min-width: 0px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media (min-width: 330px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
@@ -72,6 +77,8 @@
   text-transform: capitalize;
   border: solid 2px;
   border-radius: 5px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color:black;
 }
 
 .water {
@@ -147,8 +154,7 @@
 }
 
 .poke {
-  height: auto;
-  width: 60%;
+  height: 100%;
   border: 2px transparent rgba(220, 20, 60, 0);
   border-radius: 100%;
   text-align: center;
@@ -157,8 +163,7 @@
 
 .poke:hover {
   animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  height: auto;
-  width: 60%;
+  height: 100%;
   border: 2px solid crimson;
   border-color: crimson;
   border-radius: 1000px;
@@ -233,11 +238,12 @@
   display: flex;
     color: #fff;
     margin: 15px;
+    
 }
+
 button {
-  width: 60px;
-  height: 30px;
   margin-left: 10px;
+  width: 130px;font-size: larger;
   color: white;
   border-radius: 5px;
 }
