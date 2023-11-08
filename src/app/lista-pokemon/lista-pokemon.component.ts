@@ -16,7 +16,6 @@ export class ListaPokemonComponent implements OnInit {
 
   listaTodo: Pokemon[] = [];
   listaMostrada: Pokemon[] = [];
-  listaAux: Pokemon[] = [];
   filtroNombre: string = '';
   listaDeTipos:tipoDeTipos[] = [
     { name: 'bug', status: false },
@@ -53,7 +52,6 @@ export class ListaPokemonComponent implements OnInit {
       this.listaMostrada = pokemons.filter((Pokemon) =>
       (Pokemon.num<=this.numeroPokemon)&&(Pokemon.num>=this.numeroInicial)
     );
-      this.listaAux = this.listaMostrada;
       this.listaTodo = pokemons;
     });
   }
@@ -100,7 +98,7 @@ export class ListaPokemonComponent implements OnInit {
     this.listaMostrada = this.listaTodo.filter((Pokemon) =>
       (Pokemon.num<=this.numeroPokemon)&&(Pokemon.num>=this.numeroInicial)
     );
-    this.listaAux = this.listaMostrada;
+    
     this.ultimoPulsado = n;
   }
   filtrarTipo(){
@@ -115,11 +113,8 @@ export class ListaPokemonComponent implements OnInit {
         this.filtroTipo.push(this.listaDeTipos[i].name)
         }
     }
-    this.listaMostrada = this.listaAux.filter((Pokemon) =>
+    this.listaMostrada = this.listaMostrada.filter((Pokemon) =>
     this.filtroTipo.includes(Pokemon.tipos[0])
   );
-  
-
-    this.listaAux = this.listaMostrada;
   }
 }
