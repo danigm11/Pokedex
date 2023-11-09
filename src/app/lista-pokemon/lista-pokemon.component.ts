@@ -114,7 +114,7 @@ export class ListaPokemonComponent implements OnInit {
         }
     }
     this.listaMostrada = this.listaMostrada.filter((Pokemon) =>
-    this.filtroTipo.includes(Pokemon.tipos[0])
+    this.filtroTipo.includes(Pokemon.tipos[0])||this.filtroTipo.includes(Pokemon.tipos[1])
   );
   }
 }

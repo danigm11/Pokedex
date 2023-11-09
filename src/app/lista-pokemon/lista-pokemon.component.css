@@ -1,6 +1,6 @@
 .grid-container {
   display: grid;
-  grid-gap: 0.2%;
+  grid-gap: 3em;
   grid-template-columns: repeat(5, 1fr);
   padding: 3%;
   font-family: 'Comic sans', 'Arial Narrow', Arial, sans-serif;
@@ -166,7 +166,7 @@
   height: 100%;
   border: 2px solid crimson;
   border-color: crimson;
-  border-radius: 1000px;
+  border-radius: 100%;
   text-align: center;
   background: linear-gradient(to bottom, crimson 0%, crimson 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
 }
