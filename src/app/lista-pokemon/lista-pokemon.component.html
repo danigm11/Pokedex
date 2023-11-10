@@ -88,7 +88,7 @@
 </div>
 <div class="grid-container">
   <div *ngFor="let Pokemon of listaMostrada">
-    <div class="poke">
+    <div class="poke" [routerLink]="'/detalle/' + Pokemon.num">
       <p class="numero">
         <b
           >{{ Pokemon.num < 10 ? "00" : Pokemon.num < 100 ? "0" : ""
