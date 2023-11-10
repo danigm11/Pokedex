@@ -1,22 +1,90 @@
 <div class="buscador">
-  <input type="text" placeholder="🔍︎"[(ngModel)]="filtroNombre" (keyup)="aplicarFiltros(ultimoPulsado)" />
+  <input
+    type="text"
+    placeholder="🔍︎"
+    [(ngModel)]="filtroNombre"
+    (keyup)="aplicarFiltros(ultimoPulsado)"
+  />
 </div>
 <div>
-  <button class="Gen1" [class.boton-activo]="ultimoPulsado == 1" (click)="aplicarFiltros(1)"><b>I</b></button>
-  <button class="Gen2" [class.boton-activo]="ultimoPulsado == 2" (click)="aplicarFiltros(2)"><b>II</b></button>
-  <button class="Gen3" [class.boton-activo]="ultimoPulsado == 3" (click)="aplicarFiltros(3)"><b>III</b></button>
-  <button class="Gen4" [class.boton-activo]="ultimoPulsado == 4" (click)="aplicarFiltros(4)"><b>IV</b></button>
-  <button class="Todas" [class.boton-activo]="ultimoPulsado == 5" (click)="aplicarFiltros(5)"><b>&nbsp;&nbsp;I - IV</b></button>
+  <button
+    class="Gen1"
+    [class.boton-activo]="ultimoPulsado == 1"
+    (click)="aplicarFiltros(1)"
+  >
+    <b>I</b>
+  </button>
+  <button
+    class="Gen2"
+    [class.boton-activo]="ultimoPulsado == 2"
+    (click)="aplicarFiltros(2)"
+  >
+    <b>II</b>
+  </button>
+  <button
+    class="Gen3"
+    [class.boton-activo]="ultimoPulsado == 3"
+    (click)="aplicarFiltros(3)"
+  >
+    <b>III</b>
+  </button>
+  <button
+    class="Gen4"
+    [class.boton-activo]="ultimoPulsado == 4"
+    (click)="aplicarFiltros(4)"
+  >
+    <b>IV</b>
+  </button>
+  <button
+    class="Todas"
+    [class.boton-activo]="ultimoPulsado == 5"
+    (click)="aplicarFiltros(5)"
+  >
+    <b>&nbsp;&nbsp;I - IV</b>
+  </button>
 </div>
-<div class="selectorTipos">
-  <div *ngFor="let TipoDeTipo of listaDeTipos;let i = index">
+<div *ngIf="mostrarSelector">
+  <a style="cursor: pointer" (click)="mostrarSelector = !mostrarSelector">
+    <img class="rotate-animation" src="\assets\Images\pokemon.png"
+  /></a>
+</div>
+<div *ngIf="!mostrarSelector">
+  <a style="cursor: pointer" (click)="mostrarSelector = !mostrarSelector">
+    <img class="imagenTipos" src="\assets\Images\pokemon.png"
+  /></a>
+</div>
+
+<!--Selector Oculto-->
+<div
+  class="selectorTipos"
+  id="selectorTipos"
+  [ngClass]="{ 'slide-animation': mostrarSelector }"
+>
+  <div *ngFor="let TipoDeTipo of listaDeTipos; let i = index">
     <div class="cadaTipo" *ngIf="listaDeTipos[i].status">
-      <button  style="color: white;" [ngClass]="listaDeTipos[i].name"[textContent]="listaDeTipos[i].name" (click)="(listaDeTipos[i].status=!listaDeTipos[i].status);aplicarFiltros(ultimoPulsado)"></button>
+      <button
+        style="color: white"
+        [ngClass]="listaDeTipos[i].name"
+        [textContent]="listaDeTipos[i].name"
+        (click)="
+          listaDeTipos[i].status = !listaDeTipos[i].status;
+          aplicarFiltros(ultimoPulsado)
+        "
+      ></button>
     </div>
     <div class="cadaTipo" *ngIf="!listaDeTipos[i].status">
-      <button style="color: black;" [ngClass]="listaDeTipos[i].name"[textContent]="listaDeTipos[i].name" (click)="(listaDeTipos[i].status=!listaDeTipos[i].status);aplicarFiltros(ultimoPulsado)"></button>
+      <button
+        style="color: black"
+        [ngClass]="listaDeTipos[i].name"
+        [textContent]="listaDeTipos[i].name"
+        (click)="
+          listaDeTipos[i].status = !listaDeTipos[i].status;
+          aplicarFiltros(ultimoPulsado)
+        "
+      ></button>
     </div>
-</div>
+  </div>
+  <!--Selector Oculto-->
 </div>
 <div class="grid-container">
   <div *ngFor="let Pokemon of listaMostrada">

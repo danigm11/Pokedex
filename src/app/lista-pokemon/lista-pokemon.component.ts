@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonServiceService } from '../pokemon-service.service';
 import { Pokemon } from '../model/pokemon';
-type tipoDeTipos={
+type tipoDeTipos = {
   name: string;
   status: boolean;
-}
+};
 @Component({
   selector: 'app-lista-pokemon',
   templateUrl: './lista-pokemon.component.html',
   styleUrls: ['./lista-pokemon.component.css'],
 })
-
 export class ListaPokemonComponent implements OnInit {
-
-
+  animate: boolean = false;
+  mostrarSelector: boolean = false;
   listaTodo: Pokemon[] = [];
   listaMostrada: Pokemon[] = [];
   filtroNombre: string = '';
-  listaDeTipos:tipoDeTipos[] = [
+  listaDeTipos: tipoDeTipos[] = [
     { name: 'bug', status: false },
     { name: 'dark', status: false },
     { name: 'dragon', status: false },
@@ -35,28 +34,28 @@ export class ListaPokemonComponent implements OnInit {
     { name: 'psychic', status: false },
     { name: 'rock', status: false },
     { name: 'steel', status: false },
-    { name: 'water', status: false }
+    { name: 'water', status: false },
   ];
-  filtroTipo: string[]= [];
+  filtroTipo: string[] = [];
   numeroInicial: number = 1;
   numeroPokemon: number = 151;
-  ultimoPulsado: number =1;
+  ultimoPulsado: number = 1;
 
   constructor(private pokemonService: PokemonServiceService) {}
   ngOnInit(): void {
     this.cargaPokemon();
-    console.log(this.filtroTipo)
+    console.log(this.filtroTipo);
   }
   cargaPokemon() {
     this.pokemonService.getPokemons().subscribe((pokemons: Pokemon[]) => {
-      this.listaMostrada = pokemons.filter((Pokemon) =>
-      (Pokemon.num<=this.numeroPokemon)&&(Pokemon.num>=this.numeroInicial)
-    );
+      this.listaMostrada = pokemons.filter(
+        (Pokemon) =>
+          Pokemon.num <= this.numeroPokemon && Pokemon.num >= this.numeroInicial
+      );
       this.listaTodo = pokemons;
     });
   }
-  aplicarFiltros(n:number){
-
+  aplicarFiltros(n: number) {
     this.filtrarGen(n);
     this.filtrarTipo();
     this.filtrarNombre();
@@ -68,53 +67,60 @@ export class ListaPokemonComponent implements OnInit {
     );
   }
   filtrarGen(n: number) {
-    switch(n){
-      case 1:{
-        this.numeroInicial= 1;
+    switch (n) {
+      case 1: {
+        this.numeroInicial = 1;
         this.numeroPokemon = 151;
         break;
       }
-      case 2:{
-        this.numeroInicial= 152;
+      case 2: {
+        this.numeroInicial = 152;
         this.numeroPokemon = 251;
         break;
       }
-      case 3:{
-        this.numeroInicial= 252;
+      case 3: {
+        this.numeroInicial = 252;
         this.numeroPokemon = 386;
         break;
       }
-      case 4:{
-        this.numeroInicial= 387;
+      case 4: {
+        this.numeroInicial = 387;
         this.numeroPokemon = 493;
         break;
       }
-      case 5:{
-        this.numeroInicial= 1;
+      case 5: {
+        this.numeroInicial = 1;
         this.numeroPokemon = 493;
         break;
       }
     }
-    this.listaMostrada = this.listaTodo.filter((Pokemon) =>
-      (Pokemon.num<=this.numeroPokemon)&&(Pokemon.num>=this.numeroInicial)
+    this.listaMostrada = this.listaTodo.filter(
+      (Pokemon) =>
+        Pokemon.num <= this.numeroPokemon && Pokemon.num >= this.numeroInicial
     );
-    
+
     this.ultimoPulsado = n;
   }
-  filtrarTipo(){
-    this.filtroTipo=[];
+  filtrarTipo() {
+    this.filtroTipo = [];
     for (let i = 0; i < 18; i++) {
-      if(this.listaDeTipos[i].status){
-        this.filtroTipo.push(this.listaDeTipos[i].name)
+      if (this.listaDeTipos[i].status) {
+        this.filtroTipo.push(this.listaDeTipos[i].name);
       }
     }
-    if(this.filtroTipo.length<1){
+    if (this.filtroTipo.length < 1) {
       for (let i = 0; i < 18; i++) {
-        this.filtroTipo.push(this.listaDeTipos[i].name)
-        }
+        this.filtroTipo.push(this.listaDeTipos[i].name);
+      }
     }
-    this.listaMostrada = this.listaMostrada.filter((Pokemon) =>
-    this.filtroTipo.includes(Pokemon.tipos[0])||this.filtroTipo.includes(Pokemon.tipos[1])
-  );
+    this.listaMostrada = this.listaMostrada.filter(
+      (Pokemon) =>
+        this.filtroTipo.includes(Pokemon.tipos[0]) ||
+        this.filtroTipo.includes(Pokemon.tipos[1])
+    );
+  }
+
+  toggleAnimation() {
+    this.animate = !this.animate;
   }
 }
