@@ -1,0 +1,22 @@
+<div class="poke">
+  <p class="numero">
+    <b>{{ detalle.num < 10 ? "00" : detalle.num < 100 ? "0" : ""}}{{ detalle.num }}</b>
+  </p>
+  <img
+    class="imagen"
+    src="{{ detalle.imagen }}"
+    alt="Texto alternativo de la imagen"
+  /><br />
+  <b class="nombre">{{ detalle.nombre }}</b
+  ><br />
+  <div class="type">
+    <b [ngClass]="detalle.tipos[0].toLowerCase()">
+      {{ detalle.tipos[0] }}
+    </b>
+    <b *ngIf="detalle.tipos[1] != null">
+      <b [ngClass]="['tipo2', detalle.tipos[1].toLowerCase()]">
+        {{ detalle.tipos[1] }}
+      </b>
+    </b>
+  </div>
+</div>

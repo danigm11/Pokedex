@@ -1,0 +1,281 @@
+.grid-container {
+  display: grid;
+  grid-gap: 3em;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 3%;
+  font-family: 'Comic sans', 'Arial Narrow', Arial, sans-serif;
+}
+@media (min-width: 0px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 330px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 660px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 990px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1350px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.numero,
+.type {
+  padding-left: 7px;
+}
+
+.numero {
+  text-align: left;
+  background-color: grey;
+  width: 30px;
+  border-radius: 50%;
+  border-color: #222224;
+}
+
+.nombre,
+.type {
+  text-transform: capitalize;
+  padding-left: 30%;
+  padding-right: 30%;
+}
+
+.water,
+.grass,
+.fire,
+.fighting,
+.bug,
+.poison,
+.flying,
+.normal,
+.psychic,
+.rock,
+.ground,
+.electric,
+.fairy,
+.ghost,
+.dragon,
+.dark,
+.ice,
+.steel {
+  display: block;
+  size: 50px;
+  text-transform: capitalize;
+  border: solid 2px;
+  border-radius: 5px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color:black;
+}
+
+.water {
+  background-color: #3899f8;
+}
+
+.grass {
+  background-color: #78c850;
+}
+
+.fire {
+  background-color: #f05030;
+}
+
+.fighting {
+  background-color: #a05038;
+}
+
+.bug {
+  background-color: #a8b820;
+}
+
+.poison {
+  background-color: #b058a0;
+}
+
+.flying {
+  background-color: #98a8f0;
+}
+
+.normal {
+  background-color: #a8a090;
+}
+
+.psychic {
+  background-color: #f870a0;
+}
+
+.rock {
+  background-color: #b8a058;
+}
+
+.ground {
+  background-color: #e9d6a4;
+}
+
+.electric {
+  background-color: #f8d030;
+}
+
+.fairy {
+  background-color: #e79fe7;
+}
+
+.ghost {
+  background-color: #6060b0;
+}
+
+.dragon {
+  background-color: #7860e0;
+}
+
+.dark {
+  background-color: #7a5848;
+}
+
+.ice {
+  background-color: #58c8e0;
+}
+
+.steel {
+  background-color: #a8a8c0;
+}
+
+.poke {
+  height: 100%;
+  border: 2px transparent rgba(220, 20, 60, 0);
+  border-radius: 100%;
+  text-align: center;
+  background: linear-gradient(to bottom, crimson 0, #ee1515 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
+}
+
+.poke:hover {
+  animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  height: 100%;
+  border: 2px solid crimson;
+  border-color: crimson;
+  border-radius: 100%;
+  text-align: center;
+  background: linear-gradient(to bottom, crimson 0%, crimson 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
+}
+
+.poke::selection {
+  background-color: #222224;
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+
+  10% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  20% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  30% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  40% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  50% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  60% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  70% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+
+  80% {
+    transform: translateX(5px) rotate(2.5deg);
+  }
+
+  90% {
+    transform: translateX(-5px) rotate(-2.5deg);
+  }
+}
+
+.imagen {
+  width: 60%;
+  height: auto;
+}
+
+.buscador {
+  display: flex;
+  padding-bottom: 10px;
+}
+.selectorTipos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.cadaTipo{
+  display: flex;
+    color: #fff;
+    margin: 15px;
+    
+}
+
+button {
+  margin-left: 10px;
+  width: 130px;font-size: larger;
+  color: white;
+  border-radius: 5px;
+}
+
+.Gen1,
+.Gen2,
+.Gen3,
+.Gen4,
+.Todas {
+  background-size: 200% 100%;
+}
+
+.Gen1 {
+  background: linear-gradient(to right, crimson 0%, crimson 50%, green 50%, green 100%);
+}
+
+.Gen2 {
+  background: linear-gradient(to right, rgb(199, 199, 26) 0%, rgb(199, 199, 26) 50%, grey 50%, grey 100%);
+}
+
+.Gen3 {
+  background: linear-gradient(to right, crimson 0%, crimson 50%, blue 50%, blue 100%);
+}
+
+.Gen4 {
+  background: linear-gradient(to right, rgb(93, 20, 220) 0%, rgb(93, 20, 220) 50%, rgb(255, 0, 208) 50%, rgb(255, 0, 208) 100%);
+}
+
+.Todas {
+  background: linear-gradient(to right, rgb(153, 152, 152) 0%, rgb(153, 152, 152) 50%, black 50%, black 100%);
+}
+
+.boton-activo {
+  border: 3px solid rgb(255, 174, 0);
+}

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Pokemon } from './model/pokemon';
+import { PokemonDetail } from './model/pokemon-detail';
 
 @Injectable({
   providedIn: 'root',
@@ -27,6 +28,27 @@ export class PokemonServiceService {
   }
 
   private mapPokemonData(poke: any): Pokemon {
+    let tipos = [poke.types[0].type.name];
+    if (poke.types[1]) {
+      tipos.push(poke.types[1].type.name);
+    }
+    return {
+      nombre: poke.name,
+      num: poke.id,
+      imagen: poke.sprites.other['official-artwork'].front_default,
+      tipos: tipos,
+    };
+  }
+
+  getDetalles(id: Number): Observable<PokemonDetail> {
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
+      map((nuevoPokemon: any) => {
+        return this.mapPokemonDetailData(nuevoPokemon);
+      })
+    );
+  }
+
+  private mapPokemonDetailData(poke: any): PokemonDetail {
     let tipos = [poke.types[0].type.name];
     if (poke.types[1]) {
       tipos.push(poke.types[1].type.name);
