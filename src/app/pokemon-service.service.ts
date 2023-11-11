@@ -57,6 +57,8 @@ export class PokemonServiceService {
       nombre: poke.name,
       num: poke.id,
       imagen: poke.sprites.other['official-artwork'].front_default,
+      altura: poke.height/10,
+      peso: poke.weight/10,
       tipos: tipos,
     };
   }

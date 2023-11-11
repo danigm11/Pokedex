@@ -240,7 +240,17 @@
   flex-wrap: wrap;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  /*transition: opacity 0.5s ease-in-out;*/
+  animation: slide 1s;
+}
+.selectorTipos2 {
+  height: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  /*transition: opacity 0.5s ease-in-out;*/
+  animation: slideOut 1s;
 }
 .cadaTipo{
   display: flex;
@@ -289,7 +299,6 @@ button {
 }
 
 
-
 .imagenTipos{
   width: 5em;
   animation: rotateb 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -315,7 +324,6 @@ button {
   0% {
     transform: rotate(360deg);
   }
-
   100% {
     transform: rotate(0deg);
   }
@@ -335,6 +343,7 @@ button {
   to {
     transform: translateY(-0%);
     opacity: 0;
+    display: none;
   }
 }
 
@@ -346,5 +355,6 @@ button {
   to {
     transform: translateY(0);
     opacity: 1;
+    display: flex;
   }
 }

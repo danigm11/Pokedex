@@ -7,8 +7,9 @@
     src="{{ detalle.imagen }}"
     alt="Texto alternativo de la imagen"
   /><br />
-  <b class="nombre">{{ detalle.nombre }}</b
-  ><br />
+  <b class="nombre">{{ detalle.nombre }}</b><br />
+  <b >Peso: {{ detalle.peso }} kg</b><br />
+  <b >Altura: {{ detalle.altura }} m</b><br />
   <div class="type">
     <b [ngClass]="detalle.tipos[0].toLowerCase()">
       {{ detalle.tipos[0] }}
