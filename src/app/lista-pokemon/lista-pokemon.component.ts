@@ -119,8 +119,4 @@ export class ListaPokemonComponent implements OnInit {
         this.filtroTipo.includes(Pokemon.tipos[1])
     );
   }
-
-  toggleAnimation() {
-    this.animate = !this.animate;
-  }
 }

@@ -1,21 +1,31 @@
-<div class="poke">
-  <p class="numero">
-    <b>{{ detalle.num < 10 ? "00" : detalle.num < 100 ? "0" : ""}}{{ detalle.num }}</b>
-  </p>
-  <img
-    class="imagen"
-    src="{{ detalle.imagen }}"
-    alt="Texto alternativo de la imagen"
-  /><br />
-  <b class="nombre">{{ detalle.nombre }}</b><br />
-  <b >Peso: {{ detalle.peso }} kg</b><br />
-  <b >Altura: {{ detalle.altura }} m</b><br />
+<div>
+  <div class="nombre">
+    <b>{{ detalle.nombre }}  </b>
+    <b>{{ detalle.num < 10 ? "00" : detalle.num < 100 ? "0" : "" }}{{ detalle.num }}</b>
+  </div>
+  
+  <div class="imagenContainer">
+    <img class="imagen" [src]="imagenActual" alt="Texto alternativo de la imagen" (click)="cambiarImagen()" />
+    <div class="detalles">
+      <b>Peso: {{ detalle.peso }} kg</b><br />
+      <b>Altura: {{ detalle.altura }} m</b><br />
+      <b>{{ detalle.descripcion }}</b><br />
+    </div>
+    <div class="stats">
+      <b>Vida: {{ detalle.vida }} </b><br />
+      <b>Ataque: {{ detalle.ataque }}</b><br />
+      <b>Defensa: {{ detalle.defensa }}</b><br />
+      <b>Ataque especial: {{ detalle.ataque_especial }} </b><br />
+      <b>Defensa especial: {{ detalle.defensa_especial }}</b><br />
+      <b>Velocidad: {{ detalle.velocidad }}</b><br />
+    </div>
+  </div><br><br>
   <div class="type">
-    <b [ngClass]="detalle.tipos[0].toLowerCase()">
+    <b class="tipoFormato" [ngClass]="detalle.tipos[0].toLowerCase()">
       {{ detalle.tipos[0] }}
     </b>
     <b *ngIf="detalle.tipos[1] != null">
-      <b [ngClass]="['tipo2', detalle.tipos[1].toLowerCase()]">
+      <b class="tipoFormato" [ngClass]="['tipo2', detalle.tipos[1].toLowerCase()]">
         {{ detalle.tipos[1] }}
       </b>
     </b>

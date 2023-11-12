@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap } from 'rxjs/operators';
 import { Pokemon } from './model/pokemon';
 import { PokemonDetail } from './model/pokemon-detail';
 
@@ -39,27 +39,44 @@ export class PokemonServiceService {
       tipos: tipos,
     };
   }
+  
+    getDetalles(id: number): Observable<PokemonDetail> {
+      return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
+        mergeMap((nuevoPokemon: any) => {
+          return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
+            map((speciesData: any) => {
+              return this.mapPokemonDetailData(nuevoPokemon, speciesData);
+            })
+          );
+        })
+      );
+      }
 
-  getDetalles(id: Number): Observable<PokemonDetail> {
-    return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
-      map((nuevoPokemon: any) => {
-        return this.mapPokemonDetailData(nuevoPokemon);
-      })
-    );
-  }
-
-  private mapPokemonDetailData(poke: any): PokemonDetail {
-    let tipos = [poke.types[0].type.name];
-    if (poke.types[1]) {
-      tipos.push(poke.types[1].type.name);
-    }
-    return {
-      nombre: poke.name,
-      num: poke.id,
-      imagen: poke.sprites.other['official-artwork'].front_default,
-      altura: poke.height/10,
-      peso: poke.weight/10,
-      tipos: tipos,
-    };
-  }
+      private mapPokemonDetailData(poke: any, speciesData: any): PokemonDetail {
+        let tipos = [poke.types[0].type.name];
+        if (poke.types[1]) {
+          tipos.push(poke.types[1].type.name);
+        }
+        
+        const desc = speciesData.flavor_text_entries.find(
+          (entry: any) => entry.language.name === 'es'
+        ).flavor_text;
+    
+        return {
+          nombre: poke.name,
+          num: poke.id,
+          imagen: poke.sprites.other['official-artwork'].front_default,
+          imagenShiny: poke.sprites.other['official-artwork'].front_shiny,
+          altura: poke.height / 10,
+          peso: poke.weight / 10,
+          descripcion: desc,
+          tipos: tipos,
+          vida: poke.stats[0].base_stat,
+          ataque:poke.stats[1].base_stat,
+          defensa: poke.stats[2].base_stat,
+          ataque_especial:poke.stats[3].base_stat,
+          defensa_especial: poke.stats[4].base_stat,
+          velocidad:poke.stats[5].base_stat,
+        };
+      }
 }
