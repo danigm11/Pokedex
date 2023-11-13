@@ -37,6 +37,7 @@
 .numero,
 .type {
   padding-left: 7px;
+  color: white;
 }
 
 .numero {
@@ -46,7 +47,9 @@
   border-radius: 50%;
   border-color: #222224;
 }
-
+.type{
+  border-color: wheat;
+}
 .nombre,
 .type {
   text-transform: capitalize;
@@ -73,12 +76,12 @@
 .ice,
 .steel {
   display: block;
-  size: 50px;
+  size: 50em;
   text-transform: capitalize;
-  border: solid 2px;
+  border: solid 2px black;
   border-radius: 5px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color:black;
+  font-size: 90%;
+  text-shadow: 1px 1px 0px black,1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;
 }
 
 .water {
@@ -258,7 +261,12 @@
     margin: 15px;
     
 }
-
+.noPulsado{
+  border-color: black;
+}
+.pulsado{
+  border-color: whitesmoke;
+}
 button {
   margin-left: 10px;
   width: 130px;font-size: larger;

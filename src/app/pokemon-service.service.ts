@@ -44,22 +44,22 @@ export class PokemonServiceService {
       return this.http.get('https://pokeapi.co/api/v2/pokemon/' + id).pipe(
         mergeMap((nuevoPokemon: any) => {
           return this.http.get('https://pokeapi.co/api/v2/pokemon-species/' + id).pipe(
-            map((speciesData: any) => {
-              return this.mapPokemonDetailData(nuevoPokemon, speciesData);
+            map((species: any) => {
+              return this.mapPokemonDetailData(nuevoPokemon, species);
             })
           );
         })
       );
       }
 
-      private mapPokemonDetailData(poke: any, speciesData: any): PokemonDetail {
+      private mapPokemonDetailData(poke: any, species: any): PokemonDetail {
         let tipos = [poke.types[0].type.name];
         if (poke.types[1]) {
           tipos.push(poke.types[1].type.name);
         }
         
-        const desc = speciesData.flavor_text_entries.find(
-          (entry: any) => entry.language.name === 'es'
+        const desc = species.flavor_text_entries.find(
+          (entry: any) => entry.language.name === 'es'&& entry.version.name==='x'
         ).flavor_text;
     
         return {

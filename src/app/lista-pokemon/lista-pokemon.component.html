@@ -29,11 +29,11 @@
 <div *ngIf="mostrarSelector" [ngClass]="{ 'selectorTipos': mostrarSelector, 'selectorTipos2': !mostrarSelector, 'slide-animation': mostrarSelector }" id="selectorTipos">
   <div *ngFor="let TipoDeTipo of listaDeTipos; let i = index">
     <div class="cadaTipo" *ngIf="listaDeTipos[i].status">
-      <button style="color: white" [ngClass]="listaDeTipos[i].name" [textContent]="listaDeTipos[i].name" (click)="
+      <button class="pulsado" [ngClass]="listaDeTipos[i].name" [textContent]="listaDeTipos[i].name" (click)="
           listaDeTipos[i].status = !listaDeTipos[i].status; aplicarFiltros(ultimoPulsado)"></button>
     </div>
     <div class="cadaTipo" *ngIf="!listaDeTipos[i].status">
-      <button style="color: black" [ngClass]="listaDeTipos[i].name" [textContent]="listaDeTipos[i].name" (click)="
+      <button class="noPulsado" [ngClass]="listaDeTipos[i].name" [textContent]="listaDeTipos[i].name" (click)="
           listaDeTipos[i].status = !listaDeTipos[i].status; aplicarFiltros(ultimoPulsado)"></button>
     </div>
   </div>
