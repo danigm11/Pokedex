@@ -166,7 +166,8 @@
 
 .poke:hover {
   animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  height: 100%;
+  height: 105%;
+  width: 105%;
   border: 2px solid crimson;
   border-color: crimson;
   border-radius: 100%;
@@ -226,10 +227,25 @@
   width: 60%;
   height: auto;
 }
-
+.listaVacia{
+  font-size: 3em;
+  font-family: 'Pokemon Solid', sans-serif;
+  color:rgb(255, 204, 0);
+  -webkit-text-stroke-width: 0.06em;
+  -webkit-text-stroke-color: rgb(57, 134, 228);
+  text-align: center;
+  width: 100%;
+}
 .buscador {
   display: flex;
   padding-bottom: 10px;
+  justify-content: center;
+}
+.buscaNombre{
+  font-size: 2em;
+  width: 30%;
+  min-width: 10em;
+  border-radius: 0.5em;
 }
 /*.selectorTipos {
   display: none;
@@ -258,8 +274,10 @@
 .cadaTipo{
   display: flex;
     color: #fff;
-    margin: 15px;
-    
+    margin: 8px;
+    width: 4em;   
+    font-size: 2em;
+    text-shadow: 22px 2px 0px black,2px -2px 0px black,-1px 1px 0px black,-1px -1px 0px black;
 }
 .noPulsado{
   border-color: black;

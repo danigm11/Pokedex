@@ -1,5 +1,5 @@
 <div class="buscador">
-  <input type="text" placeholder="🔍︎" [(ngModel)]="filtroNombre" (keyup)="aplicarFiltros(ultimoPulsado)" />
+  <input class="buscaNombre" type="text" placeholder="🔍︎" [(ngModel)]="filtroNombre" (keyup)="aplicarFiltros(ultimoPulsado)" />
 </div>
 <div>
   <button class="Gen1" [class.boton-activo]="ultimoPulsado == 1" (click)="aplicarFiltros(1)">
@@ -39,7 +39,10 @@
   </div>
 </div>
 
+<div class="listaVacia" *ngIf="listaMostrada.length==0">Pokémon error 404</div>
+
 <div class="grid-container">
+  
   <div *ngFor="let Pokemon of listaMostrada">
     <div class="poke" [routerLink]="'/detalle/' + Pokemon.num">
       <p class="numero">
