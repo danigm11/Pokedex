@@ -35,31 +35,27 @@ export class PokemonDetailComponent {
     private http: HttpClient
   ) {}
 
-  async cargaPokemon() {
-    try {
-      const pokemons: PokemonDetail | undefined = await this.pokemonService
-        .getDetalles(this.id)
-        .toPromise();
+  cargaPokemon() {
+    this.pokemonService.getDetalles(this.id).subscribe((pokemons: PokemonDetail) => {
+      this.detalle = pokemons;
+      this.imagenActual = this.detalle.imagen;
 
-      if (pokemons) {
-        this.detalle = pokemons;
-        this.imagenActual = this.detalle.imagen;
+      const loadLists = () => {
+        this.cargarListas(pokemons.tipos[0], 2)
+          .then(() => this.cargarListas(pokemons.tipos[0], 0))
+          .then(() => this.cargarListas(pokemons.tipos[0], 0.5))
+          .then(() => {
+            if (pokemons.tipos[1]) {
+              this.cargarListas(pokemons.tipos[1], 2)
+                .then(() => this.cargarListas(pokemons.tipos[1], 0))
+                .then(() => this.cargarListas(pokemons.tipos[1], 0.5))
+                .then(() => this.ordenarListasX());
+            }
+          });
+      };
 
-        await this.cargarListasX(pokemons.tipos[0], 2);
-        await this.cargarListasX(pokemons.tipos[0], 0);
-        await this.cargarListasX(pokemons.tipos[0], 0.5);
-
-        if (pokemons.tipos[1]) {
-          await this.cargarListasX(pokemons.tipos[1], 2);
-          await this.cargarListasX(pokemons.tipos[1], 0);
-          await this.cargarListasX(pokemons.tipos[1], 0.5);
-        }
-      } else {
-        console.error('Pokemon details not found');
-      }
-    } catch (error) {
-      console.error('Error loading Pokemon details:', error);
-    }
+      loadLists();
+    });
   }
 
   cambiarImagen() {
@@ -79,23 +75,19 @@ export class PokemonDetailComponent {
       })
     );
   }
-  async cargarListasX(tipo: string, n: number) {
+  async cargarListas(tipo: string, n: number): Promise<void> {
     try {
       const data = await this.returnJsonData(tipo, n).toPromise();
-
       if (data !== undefined) {
-        if (n == 2) {
+        if (n === 2) {
           this.listaX2Aux = this.listaX2.slice();
           this.listaX2 = data;
-        } else if (n == 0) {
+        } else if (n === 0) {
           this.listaX0Aux = this.listaX0.slice();
           this.listaX0 = data;
-        } else if (n == 0.5) {
+        } else if (n === 0.5) {
           this.listaX12Aux = this.listaX12.slice();
           this.listaX12 = data;
-          if (tipo === this.detalle.tipos[1]) {
-            this.ordenarListasX();
-          }
         }
       }
     } catch (error) {
@@ -129,7 +121,6 @@ export class PokemonDetailComponent {
     this.listaX12 = this.listaX12.filter(
       (item) => !this.listaX14.includes(item)
     );
-    this.listaX4 = this.listaX4.filter((item) => !this.listaX0.includes(item));
     this.listaX2 = this.listaX2.filter((item) => !this.listaX0.includes(item));
 
     this.listaX12 = this.listaX12.filter(
