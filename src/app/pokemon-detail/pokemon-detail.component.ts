@@ -33,11 +33,11 @@ export class PokemonDetailComponent {
   cargaPokemon(){
     this.pokemonService.getDetalles(this.id).subscribe((pokemons: PokemonDetail) => {
       this.detalle=pokemons;this.imagenActual= this.detalle.imagen;
-      this.cargarListasX(this.detalle.tipos[0],2);this.cargarListasX(this.detalle.tipos[0],1);
-      this.cargarListasX(this.detalle.tipos[0],0);this.cargarListasX(this.detalle.tipos[0],0.5);
-      if(this.detalle.tipos[1]){
-        this.cargarListasX(this.detalle.tipos[1],2);this.cargarListasX(this.detalle.tipos[1],1);
-        this.cargarListasX(this.detalle.tipos[1],0);this.cargarListasX(this.detalle.tipos[1],0.5);
+      this.cargarListasX(pokemons.tipos[0],2);
+      this.cargarListasX(pokemons.tipos[0],0);this.cargarListasX(pokemons.tipos[0],0.5);
+      if(pokemons.tipos[1]){
+        this.cargarListasX(pokemons.tipos[1],2);
+        this.cargarListasX(pokemons.tipos[1],0);this.cargarListasX(pokemons.tipos[1],0.5);
       }}
       );
   }
@@ -96,6 +96,7 @@ export class PokemonDetailComponent {
     });
     this.listaX2 = this.listaX2.filter(item => !this.listaX4.includes(item));
     this.listaX12 = this.listaX12.filter(item => !this.listaX14.includes(item));
+    this.listaX4 = this.listaX4.filter(item => !this.listaX0.includes(item));
     this.listaX2 = this.listaX2.filter(item => !this.listaX0.includes(item));
     this.listaX12 = this.listaX12.filter(item => !this.listaX0.includes(item));
     let listaX2copia:String[]=this.listaX2;
