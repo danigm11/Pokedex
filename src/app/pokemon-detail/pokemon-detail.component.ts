@@ -33,7 +33,7 @@ export class PokemonDetailComponent {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.createPieChart();
-    }, 100); // Cambia este valor si es necesario, para dar tiempo al DOM para renderizar completamente.
+    }, 10); // Cambia este valor si es necesario, para dar tiempo al DOM para renderizar completamente.
   }
   detalle: any;
   imagenActual: string = '';
@@ -57,7 +57,8 @@ export class PokemonDetailComponent {
               this.cargarListas(pokemons.tipos[1], 2)
                 .then(() => this.cargarListas(pokemons.tipos[1], 0))
                 .then(() => this.cargarListas(pokemons.tipos[1], 0.5))
-                .then(() => this.ordenarListasX());
+                .then(() => this.ordenarListasX())
+                .then(()=>this.ngAfterViewInit());
             }
           });
       };
