@@ -4,6 +4,8 @@ import { PokemonDetail } from '../model/pokemon-detail';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { Chart } from 'chart.js/auto';
+
 @Component({
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
@@ -26,6 +28,10 @@ export class PokemonDetailComponent {
       'id'
     ) as unknown as number;
     this.cargaPokemon();
+  }
+
+  ngAfterViewInit():void{
+    this.createPieChart();
   }
   detalle: any;
   imagenActual: string = '';
@@ -134,4 +140,36 @@ export class PokemonDetailComponent {
       (elemento) => !listaX2copia.includes(elemento)
     );
   }
+  createPieChart() {
+    setTimeout(() => {
+    const ctx = document.getElementById('grafica') as HTMLCanvasElement;
+    console.log(ctx);
+    if (!ctx) {
+      console.error('Canvas element not found!');
+      return;
+    }
+    const labels = ['Enero', 'Febrero', 'Marzo', 'Abril'];
+    const colors = ['rgb(69,177,223)', 'rgb(99,201,122)', 'rgb(203,82,82)', 'rgb(229,224,88)'];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        data: [1, 2, 3, 4],
+        backgroundColor: colors,
+      }],
+    };
+  
+    const config: any = {
+      type: 'pie',
+      data: data,
+    };
+    
+    
+  
+    new Chart(ctx, config);
+  }, 1);
+  }
+  
+  
 }
+

@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <div *ngIf="detalle" >
   <div class="nombre" >
     <b>{{ detalle.nombre }}  </b>
@@ -17,7 +19,8 @@
         </b>
       </b>
     </div>
-  </div>
+    <canvas style="border:solid 1px" id="grafica" width="400" height="400"></canvas>
+
     <div class="detalles">
       <b>Peso: {{ detalle.peso }} kg</b><br />
       <b>Altura: {{ detalle.altura }} m</b><br />
@@ -53,3 +56,4 @@
     <div class="tipoFormato"  *ngFor="let String of listaX0;let i = index" [textContent]="listaX0[i]" [ngClass]="listaX0[i]"></div>
   </div>
 </div>
+
