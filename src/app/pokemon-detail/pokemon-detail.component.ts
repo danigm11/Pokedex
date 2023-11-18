@@ -52,13 +52,13 @@ export class PokemonDetailComponent {
         this.cargarListas(pokemons.tipos[0], 2)
           .then(() => this.cargarListas(pokemons.tipos[0], 0))
           .then(() => this.cargarListas(pokemons.tipos[0], 0.5))
+          .then(()=>this.ngAfterViewInit())
           .then(() => {
             if (pokemons.tipos[1]) {
               this.cargarListas(pokemons.tipos[1], 2)
                 .then(() => this.cargarListas(pokemons.tipos[1], 0))
                 .then(() => this.cargarListas(pokemons.tipos[1], 0.5))
-                .then(() => this.ordenarListasX())
-                .then(()=>this.ngAfterViewInit());
+                .then(() => this.ordenarListasX());
             }
           });
       };
