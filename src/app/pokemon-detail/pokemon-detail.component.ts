@@ -150,19 +150,32 @@ export class PokemonDetailComponent {
       console.error('Canvas element not found!');
       return;
     }
-    const labels = ['Enero', 'Febrero', 'Marzo', 'Abril'];
-    const colors = ['rgb(69,177,223)', 'rgb(99,201,122)', 'rgb(203,82,82)', 'rgb(229,224,88)'];
+    
   
     const data = {
-      labels: labels,
+      labels: [
+        'Live',
+        'Attack',
+        'Defense',
+        'S.Attack',
+        'S.Defense',
+        'Speed',
+      ],
       datasets: [{
-        data: [1, 2, 3, 4],
-        backgroundColor: colors,
-      }],
+        label: 'My First Dataset',
+        data: [this.detalle.vida, this.detalle.ataque,this.detalle.defensa, this.detalle.ataque_especial, this.detalle.defensa_especial, this.detalle.velocidad],
+        fill: true,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: "red",
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }]
     };
   
     const config: any = {
-      type: 'pie',
+      type: 'radar',
       data: data,
     };
     
