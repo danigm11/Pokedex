@@ -1,6 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div *ngIf="detalle" >
+<div *ngIf="detalle" class="parent">
   <div class="nombre" >
     <b>{{ detalle.nombre }}  </b>
     <b>{{ detalle.num < 10 ? "00" : detalle.num < 100 ? "0" : "" }}{{ detalle.num }}</b>
@@ -19,7 +19,8 @@
         </b>
       </b>
     </div>
-    <canvas style="border:solid 1px" id="grafica" class="grafica"></canvas>
+    </div>
+   
 
     <div class="detalles">
       <b>Peso: {{ detalle.peso }} kg</b><br />
@@ -35,6 +36,7 @@
       <b>Velocidad: {{ detalle.velocidad }}</b><br />
     </div>
   </div><br><br>
+  <div class="divdetipos">
   <div class="type" *ngIf="listaX4.length>0">
     <b>X4</b>
     <div class="tipoFormato"  *ngFor="let String of listaX4;let i = index" [textContent]="listaX4[i]" [ngClass]="listaX4[i]"></div>
@@ -54,6 +56,9 @@
   <div class="type" *ngIf="listaX0.length>0">
     <b>X0</b>
     <div class="tipoFormato"  *ngFor="let String of listaX0;let i = index" [textContent]="listaX0[i]" [ngClass]="listaX0[i]"></div>
+  </div></div>
+  <div class="tabla"> 
+    <canvas style="border:solid 1px" id="grafica" class="grafica"></canvas>
   </div>
 </div>
 

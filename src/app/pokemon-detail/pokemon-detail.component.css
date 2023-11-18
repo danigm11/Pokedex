@@ -1,46 +1,57 @@
-.imagen {
-  width: auto;
-  height: auto;
-  border: solid 3px;
-  border-radius: 10%;
-}
-.imagenContainer {
-  width: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.stats,
-.detalles{
-  display: flex;
-  flex-direction: column;
-  font-size: x-large;
-  border: solid 3px;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10%;
-  width: 20%;
-}
-.nombre{
-  text-align: center;
-  text-transform: capitalize;
-  font-size: xx-large;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.type {
-  text-align: center;
-  text-transform: capitalize;
-  padding-left: 30%;
-  padding-right: 30%;
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto auto auto auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 80%; /* Puedes ajustar el ancho según tus necesidades */
+  margin: 0 auto; /* Centra el contenedor en la pantalla */
 }
 
-.tipoFormato {
-  display: block;
-  size: 50px;
-  text-transform: capitalize;
-  border: solid 2px;
-  border-radius: 5px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+.nombre {
+  grid-area: 1 / 2 / 2 / 4;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.imagenContainer {
+  grid-area: 1 / 1 / 2/ 2; /* Ajustado para ocupar desde la fila 2 hasta la fila 6 y todas las columnas */
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.imagen {
+  width: 100%;
+}
+
+.type {
+  /* Puedes ajustar según sea necesario */
+}
+
+.detalles {
+  grid-area: 6 / 1 / 7 / 3; /* Ajustado para ocupar desde la fila 6 hasta la fila 7 y desde la columna 1 hasta la columna 3 */
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.stats {
+  grid-area: 6 / 3 / 7 / 5; /* Ajustado para ocupar desde la fila 6 hasta la fila 7 y desde la columna 3 hasta la columna 5 */
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.divdetipos {
+  grid-area: 6 / 5 / 7 / 6; /* Ajustado para ocupar desde la fila 6 hasta la fila 7 y desde la columna 5 hasta la columna 6 */
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.tabla {
+  grid-area: 1 / 4 / 2 / 6; /* Ajustado para ocupar desde la fila 2 hasta la fila 6 y desde la columna 4 hasta la columna 6 */
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.grafica {
+  width: 100%;
 }
