@@ -30,8 +30,10 @@ export class PokemonDetailComponent {
     this.cargaPokemon();
   }
 
-  ngAfterViewInit():void{
-    this.createPieChart();
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.createPieChart();
+    }, 100); // Cambia este valor si es necesario, para dar tiempo al DOM para renderizar completamente.
   }
   detalle: any;
   imagenActual: string = '';
