@@ -178,6 +178,30 @@ export class PokemonDetailComponent {
     const config: any = {
       type: 'radar',
       data: data,
+      options: {
+        scales: {
+          y: [{
+            ticks: {
+              font:{
+                fontSize: 12
+              }
+            }
+        }],
+          r: {
+            angleLines: {
+              color: 'black'
+              
+            }, 
+            pointLabels: {
+              color: 'black',
+              fontSize: 200,
+            },
+            grid: {
+              color: 'grey'
+            }
+          }
+        }
+      }
     };
     
     
