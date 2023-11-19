@@ -146,55 +146,56 @@ export class PokemonDetailComponent {
   createPieChart() {
     setTimeout(() => {
     const ctx = document.getElementById('grafica') as HTMLCanvasElement;
-    console.log(ctx);
     if (!ctx) {
-      console.error('Canvas element not found!');
       return;
     }
-    
-  
+
     const data = {
       labels: [
-        'Live',
-        'Attack',
-        'Defense',
-        'S.Attack',
-        'S.Defense',
-        'Speed',
+        'Health Points '+this.detalle.vida,
+        'Attack '+this.detalle.ataque,
+        'Defense '+this.detalle.defensa,
+        'S.Attack '+this.detalle.ataque_especial,
+        'S.Defense '+this.detalle.defensa_especial,
+        'Speed '+this.detalle.velocidad,
       ],
       datasets: [{
-        label: 'My First Dataset',
+        label: 'Stats',
         data: [this.detalle.vida, this.detalle.ataque,this.detalle.defensa, this.detalle.ataque_especial, this.detalle.defensa_especial, this.detalle.velocidad],
         fill: true,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: "red",
-        pointBackgroundColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgba(204, 204, 255, 0.7 )',
+        borderColor: "rgb(121, 51, 153)",
+        pointBackgroundColor: 'rgb(0, 0, 0)',
         pointBorderColor: '#fff',
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(255, 99, 132)'
+      }, {
+        label: '',
+        data: [0, 0, 0, 0, 0, 0, 200],
+        fill: false,
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        borderColor: "rgba(255, 99, 132, 0)",
+        pointBackgroundColor: 'rgba(0, 0, 0,0)',
+        pointBorderColor: 'rgba(0, 0, 0,0)',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(54, 162, 235)'
       }]
     };
-  
+    //Chart.defaults.font.size=20;
     const config: any = {
       type: 'radar',
       data: data,
       options: {
         scales: {
-          y: [{
-            ticks: {
-              font:{
-                fontSize: 12
-              }
-            }
-        }],
           r: {
             angleLines: {
               color: 'black'
-              
-            }, 
+            },
             pointLabels: {
               color: 'black',
-              fontSize: 200,
+              font: {
+                size: 15 
+              }
             },
             grid: {
               color: 'grey'
@@ -203,9 +204,6 @@ export class PokemonDetailComponent {
         }
       }
     };
-    
-    
-  
     new Chart(ctx, config);
   }, 1);
   }
