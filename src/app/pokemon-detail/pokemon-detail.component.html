@@ -1,68 +1,97 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div *ngIf="detalle" class="parent">
-  
   <div [ngClass]="detalle.tipos[0].toLowerCase()" class="imagenContainer">
     <div>
-      <div class="nombre" >
-        <b>{{ detalle.nombre }}  </b>
-        <b>{{ detalle.num < 10 ? "00" : detalle.num < 100 ? "0" : "" }}{{ detalle.num }}</b>
+      <div class="nombre">
+        <b>{{ detalle.nombre }} </b>
+        <b
+          >{{ detalle.num < 10 ? "00" : detalle.num < 100 ? "0" : ""
+          }}{{ detalle.num }}</b
+        >
       </div>
-    <img class="imagen" [src]="imagenActual" alt="Texto alternativo de la imagen" (click)="cambiarImagen();" />
-    <div class="tipoImagen">
-      <div class="formatoTipoImagen" [ngClass]="detalle.tipos[0].toLowerCase()">
-        {{ detalle.tipos[0] }}
-      </div>
-      <div *ngIf="detalle.tipos[1] != null">
-        <div class="formatoTipoImagen" [ngClass]="['tipo2', detalle.tipos[1].toLowerCase()]">
-            {{ detalle.tipos[1] }}
+      <img
+        class="imagen"
+        [src]="imagenActual"
+        alt="Texto alternativo de la imagen"
+        (click)="cambiarImagen()"
+      />
+      <div class="tipoImagen">
+        <div
+          class="formatoTipoImagen"
+          [ngClass]="detalle.tipos[0].toLowerCase()"
+        >
+          {{ detalle.tipos[0] }}
         </div>
+
+        <div
+          *ngIf="detalle.tipos[1] != null"
+          class="formatoTipoImagen"
+          [ngClass]="[detalle.tipos[1].toLowerCase()]"
+        >
+          {{ detalle.tipos[1] }}
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-   <br>
+    <br />
     <div class="detalles">
       <b>Peso: {{ detalle.peso }} kg</b><br />
       <b>Altura: {{ detalle.altura }} m</b><br />
-      <b>{{ detalle.descripcion }}</b><br />
+      <b>{{ detalle.descripcion }}</b
+      ><br />
     </div>
-    
-    <div class="stats">
-      <b>Vida: {{ detalle.vida }} </b><br />
-      <b>Ataque: {{ detalle.ataque }}</b><br />
-      <b>Defensa: {{ detalle.defensa }}</b><br />
-      <b>Ataque especial: {{ detalle.ataque_especial }} </b><br />
-      <b>Defensa especial: {{ detalle.defensa_especial }}</b><br />
-      <b>Velocidad: {{ detalle.velocidad }}</b><br />
-    </div>
-  </div><br><br> 
+  </div>
+  <br /><br />
 
   <div class="divdetipos">
-    <div class=" type">
-    Debilidades
+    <div class="type">Debilidades</div>
+    <div class="type" *ngIf="listaX4.length > 0">
+      <b>X4</b>
+      <div
+        class="tipoFormato"
+        *ngFor="let String of listaX4; let i = index"
+        [textContent]="listaX4[i]"
+        [ngClass]="listaX4[i]"
+      ></div>
+    </div>
+    <div class="type" *ngIf="listaX2.length > 0">
+      <b>X2</b>
+      <div
+        class="tipoFormato"
+        *ngFor="let String of listaX2; let i = index"
+        [textContent]="listaX2[i]"
+        [ngClass]="listaX2[i]"
+      ></div>
+    </div>
+    <div class="type" *ngIf="listaX12.length > 0">
+      <b>X1/2</b>
+      <div
+        class="tipoFormato"
+        *ngFor="let String of listaX12; let i = index"
+        [textContent]="listaX12[i]"
+        [ngClass]="listaX12[i]"
+      ></div>
+    </div>
+    <div class="type" *ngIf="listaX14.length > 0">
+      <b>X1/4</b>
+      <div
+        class="tipoFormato"
+        *ngFor="let String of listaX14; let i = index"
+        [textContent]="listaX14[i]"
+        [ngClass]="listaX14[i]"
+      ></div>
+    </div>
+    <div class="type" *ngIf="listaX0.length > 0">
+      <b>X0</b>
+      <div
+        class="tipoFormato"
+        *ngFor="let String of listaX0; let i = index"
+        [textContent]="listaX0[i]"
+        [ngClass]="listaX0[i]"
+      ></div>
+    </div>
   </div>
-  <div class="type" *ngIf="listaX4.length>0">
-    <b>X4</b>
-    <div class="tipoFormato"  *ngFor="let String of listaX4;let i = index" [textContent]="listaX4[i]" [ngClass]="listaX4[i]"></div>
-  </div>
-  <div class="type" *ngIf="listaX2.length>0">
-    <b>X2</b>
-    <div class="tipoFormato"  *ngFor="let String of listaX2;let i = index" [textContent]="listaX2[i]" [ngClass]="listaX2[i]"></div>
-  </div>
-  <div class="type" *ngIf="listaX12.length>0">
-    <b>X1/2</b>
-    <div class="tipoFormato"  *ngFor="let String of listaX12;let i = index" [textContent]="listaX12[i]" [ngClass]="listaX12[i]"></div>
-  </div>
-  <div class="type" *ngIf="listaX14.length>0">
-    <b>X1/4</b>
-    <div class="tipoFormato"  *ngFor="let String of listaX14;let i = index" [textContent]="listaX14[i]" [ngClass]="listaX14[i]"></div>
-  </div>
-  <div class="type" *ngIf="listaX0.length>0">
-    <b>X0</b>
-    <div class="tipoFormato"  *ngFor="let String of listaX0;let i = index" [textContent]="listaX0[i]" [ngClass]="listaX0[i]"></div>
-  </div></div>
-  <div class="tabla"> 
-    <canvas  id="grafica" class="grafica"></canvas>
+  <div class="tabla">
+    <canvas id="grafica" class="grafica"></canvas>
   </div>
 </div>
-

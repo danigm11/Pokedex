@@ -44,27 +44,29 @@ export class PokemonDetailComponent {
   ) {}
 
   cargaPokemon() {
-    this.pokemonService.getDetalles(this.id).subscribe((pokemons: PokemonDetail) => {
-      this.detalle = pokemons;
-      this.imagenActual = this.detalle.imagen;
+    this.pokemonService
+      .getDetalles(this.id)
+      .subscribe((pokemons: PokemonDetail) => {
+        this.detalle = pokemons;
+        this.imagenActual = this.detalle.imagen;
 
-      const loadLists = () => {
-        this.cargarListas(pokemons.tipos[0], 2)
-          .then(() => this.cargarListas(pokemons.tipos[0], 0))
-          .then(() => this.cargarListas(pokemons.tipos[0], 0.5))
-          .then(()=>this.ngAfterViewInit())
-          .then(() => {
-            if (pokemons.tipos[1]) {
-              this.cargarListas(pokemons.tipos[1], 2)
-                .then(() => this.cargarListas(pokemons.tipos[1], 0))
-                .then(() => this.cargarListas(pokemons.tipos[1], 0.5))
-                .then(() => this.ordenarListasX());
-            }
-          });
-      };
+        const loadLists = () => {
+          this.cargarListas(pokemons.tipos[0], 2)
+            .then(() => this.cargarListas(pokemons.tipos[0], 0))
+            .then(() => this.cargarListas(pokemons.tipos[0], 0.5))
+            .then(() => this.ngAfterViewInit())
+            .then(() => {
+              if (pokemons.tipos[1]) {
+                this.cargarListas(pokemons.tipos[1], 2)
+                  .then(() => this.cargarListas(pokemons.tipos[1], 0))
+                  .then(() => this.cargarListas(pokemons.tipos[1], 0.5))
+                  .then(() => this.ordenarListasX());
+              }
+            });
+        };
 
-      loadLists();
-    });
+        loadLists();
+      });
   }
 
   cambiarImagen() {
@@ -145,69 +147,76 @@ export class PokemonDetailComponent {
   }
   createPieChart() {
     setTimeout(() => {
-    const ctx = document.getElementById('grafica') as HTMLCanvasElement;
-    if (!ctx) {
-      return;
-    }
-
-    const data = {
-      labels: [
-        'Health Points '+this.detalle.vida,
-        'Attack '+this.detalle.ataque,
-        'Defense '+this.detalle.defensa,
-        'S.Attack '+this.detalle.ataque_especial,
-        'S.Defense '+this.detalle.defensa_especial,
-        'Speed '+this.detalle.velocidad,
-      ],
-      datasets: [{
-        label: 'Stats',
-        data: [this.detalle.vida, this.detalle.ataque,this.detalle.defensa, this.detalle.ataque_especial, this.detalle.defensa_especial, this.detalle.velocidad],
-        fill: true,
-        backgroundColor: 'rgba(204, 204, 255, 0.7 )',
-        borderColor: "rgb(121, 51, 153)",
-        pointBackgroundColor: 'rgb(0, 0, 0)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(255, 99, 132)'
-      }, {
-        label: '',
-        data: [0, 0, 0, 0, 0, 0, 200],
-        fill: false,
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        borderColor: "rgba(255, 99, 132, 0)",
-        pointBackgroundColor: 'rgba(0, 0, 0,0)',
-        pointBorderColor: 'rgba(0, 0, 0,0)',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(54, 162, 235)'
-      }]
-    };
-    //Chart.defaults.font.size=20;
-    const config: any = {
-      type: 'radar',
-      data: data,
-      options: {
-        scales: {
-          r: {
-            angleLines: {
-              color: 'black'
-            },
-            pointLabels: {
-              color: 'black',
-              font: {
-                size: 15 
-              }
-            },
-            grid: {
-              color: 'grey'
-            }
-          }
-        }
+      const ctx = document.getElementById('grafica') as HTMLCanvasElement;
+      if (!ctx) {
+        return;
       }
-    };
-    new Chart(ctx, config);
-  }, 1);
-  }
-  
-  
-}
 
+      const data = {
+        labels: [
+          'HP ' + this.detalle.vida,
+          'Attack ' + this.detalle.ataque,
+          'Defense ' + this.detalle.defensa,
+          'S.Attack ' + this.detalle.ataque_especial,
+          'S.Defense ' + this.detalle.defensa_especial,
+          'Speed ' + this.detalle.velocidad,
+        ],
+        datasets: [
+          {
+            label: 'Stats',
+            data: [
+              this.detalle.vida,
+              this.detalle.ataque,
+              this.detalle.defensa,
+              this.detalle.ataque_especial,
+              this.detalle.defensa_especial,
+              this.detalle.velocidad,
+            ],
+            fill: true,
+            backgroundColor: 'rgba(204, 204, 255, 0.7 )',
+            borderColor: 'rgb(121, 51, 153)',
+            pointBackgroundColor: 'rgb(0, 0, 0)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)',
+          },
+          {
+            label: '',
+            data: [0, 0, 0, 0, 0, 0, 200],
+            fill: false,
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            borderColor: 'rgba(255, 99, 132, 0)',
+            pointBackgroundColor: 'rgba(0, 0, 0,0)',
+            pointBorderColor: 'rgba(0, 0, 0,0)',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(54, 162, 235)',
+          },
+        ],
+      };
+      Chart.defaults.font.size = 0;
+      const config: any = {
+        type: 'radar',
+        data: data,
+        options: {
+          scales: {
+            r: {
+              angleLines: {
+                color: 'black',
+              },
+              pointLabels: {
+                color: 'black',
+                font: {
+                  size: 15,
+                },
+              },
+              grid: {
+                color: 'grey',
+              },
+            },
+          },
+        },
+      };
+      new Chart(ctx, config);
+    }, 1);
+  }
+}
