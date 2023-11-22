@@ -13,4 +13,5 @@ export interface PokemonDetail {
     ataque_especial:number,
     defensa_especial: number,
     velocidad:number,
+    cadena:string,
 }

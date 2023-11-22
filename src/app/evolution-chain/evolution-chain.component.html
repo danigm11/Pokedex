@@ -1,0 +1,8 @@
+<div class="evo" *ngIf="pokes">
+  <div class="cadaPoke"  *ngFor="let Pokemon of pokes.pokemons; let i = index">
+    <div  [routerLink]="'/detalle/' + pokes.pokemons[i].num">
+      {{pokes.pokemons[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.pokemons[i].imagen}}">
+      
+    </div> 
+  </div>
+</div>

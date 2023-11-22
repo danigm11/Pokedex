@@ -1,0 +1,14 @@
+.evo{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.cadaPoke{
+  border: solid 1px;
+  text-transform: capitalize;
+  width: 20%;
+}
+.cadaPokeImagen{
+  width: 100%;
+}
