@@ -13,11 +13,11 @@
         <div *ngIf="i>0&&pokes">
           <div *ngFor="let trig of pokes.triggers[i-1]; let j = index">
             <div *ngIf="pokes.triggers[i-1][j+1]!=false">
-              <b *ngIf="pokes&&pokes.triggers[i-1][j]==1&&j==0">Gender: Female</b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j]==2&&j==0">Gender: Male</b>
+              <b *ngIf="pokes&&pokes.triggers[i-1][j]==1&&j==0">♀️</b>
+              <b *ngIf="pokes&&pokes.triggers[i-1][j]==2&&j==0">♂️</b>
               <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==1"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i-1][j+1]}}.png"></b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==7">Min Happiness:</b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==13">Time of day:</b>
+              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==7">😄</b>
+              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==13">⏰</b>
               {{pokes.triggers[i-1][j+1]}}
             </div>
           </div>
