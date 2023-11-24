@@ -92,13 +92,15 @@ export class PokemonServiceService {
 
       }
       private mapCadenaData(cadena: any,url:string): Evolution {
+        let listaPokemonsInicial: Pokemon[]=[];
         let listaPokemons: Pokemon[]=[];
+        let listaPokemons2: Pokemon[]=[];
         let poke: any;
         let detallesEvo:any[] = [];
         let trigg:string[]=[];
         this.getPokemon(this.obtenerNumeroDesdeURL(cadena.chain.species.url)).subscribe((nuevoPokemon: Pokemon) => {
           poke=nuevoPokemon;
-          listaPokemons.push(poke);
+          listaPokemonsInicial.push(poke);
         });
         for(let evo of cadena.chain.evolves_to){
           if(this.obtenerNumeroDesdeURL(evo.species.url)<494){
@@ -128,8 +130,8 @@ export class PokemonServiceService {
             if(this.obtenerNumeroDesdeURL(evo.species.url)<494){
               this.getPokemon(this.obtenerNumeroDesdeURL(evo2.species.url)).subscribe((nuevoPokemon: Pokemon) => {
                 poke=nuevoPokemon;
-                listaPokemons.push(poke);
-                listaPokemons.sort((a,b)=>a.num-b.num)
+                listaPokemons2.push(poke);
+                listaPokemons2.sort((a,b)=>a.num-b.num)
               });
               for(let trigger in evo.evolution_details[0]){
                 if(evo2.evolution_details[0][trigger]){
@@ -151,7 +153,9 @@ export class PokemonServiceService {
           }
         }
         return {
-          pokemons: listaPokemons,
+          pokemon: listaPokemonsInicial,
+          evo1: listaPokemons,
+          evo2: listaPokemons2,
           triggers: detallesEvo,
         };
       }

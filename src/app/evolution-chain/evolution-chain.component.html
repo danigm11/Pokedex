@@ -1,29 +1,69 @@
-<div class="evo" *ngIf="pokes && pokes.pokemons.length>1">
-  <div class="cadaPoke" *ngFor="let Pokemon of pokes.pokemons; let i = index">
-    <div [routerLink]="'/detalle/' + pokes.pokemons[i].num">
-      {{pokes.pokemons[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.pokemons[i].imagen}}">
+<div class="evo" *ngIf="pokes && pokes.evo1.length>0">
+  <div class="cadaPoke" *ngFor="let Pokemon of pokes.pokemon; let i = index">
+    <div [routerLink]="'/detalle/' + pokes.pokemon[i].num">
+      {{pokes.pokemon[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.pokemon[i].imagen}}">
       <div class="tipoImagen">
-        <div class="formatoTipoImagen" [ngClass]="pokes.pokemons[i].tipos[0].toLowerCase()">
-          {{ pokes.pokemons[i].tipos[0] }}
+        <div class="formatoTipoImagen" [ngClass]="pokes.pokemon[i].tipos[0].toLowerCase()">
+          {{ pokes.pokemon[i].tipos[0] }}
         </div>
-        <div *ngIf="pokes.pokemons[i].tipos[1] != null" class="formatoTipoImagen" [ngClass]="[pokes.pokemons[i].tipos[1].toLowerCase()]">
-          {{ pokes.pokemons[i].tipos[1] }}
+        <div *ngIf="pokes.pokemon[i].tipos[1] != null" class="formatoTipoImagen" [ngClass]="[pokes.pokemon[i].tipos[1].toLowerCase()]">
+          {{ pokes.pokemon[i].tipos[1] }}
         </div>
       </div>
-        <div *ngIf="i>0&&pokes">
-          <div *ngFor="let trig of pokes.triggers[i-1]; let j = index">
-            <div *ngIf="pokes.triggers[i-1][j+1]!=false">
-              <b *ngIf="pokes&&pokes.triggers[i-1][j]==1&&j==0">♀️</b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j]==2&&j==0">♂️</b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==1"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i-1][j+1]}}.png"></b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==7">😄</b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==13">⏰</b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==8">⬆️</b>
-              <b *ngIf="pokes&&pokes.triggers[i-1][j+1]&&j==6">💅</b>
-              {{pokes.triggers[i-1][j+1]}}
-            </div>
+      </div>
+    </div>
+  <div class="cadaPoke" *ngFor="let Pokemon of pokes.evo1; let i = index">
+    <div [routerLink]="'/detalle/' + pokes.evo1[i].num">
+      {{pokes.evo1[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.evo1[i].imagen}}">
+      <div class="tipoImagen">
+        <div class="formatoTipoImagen" [ngClass]="pokes.evo1[i].tipos[0].toLowerCase()">
+          {{ pokes.evo1[i].tipos[0] }}
+        </div>
+        <div *ngIf="pokes.evo1[i].tipos[1] != null" class="formatoTipoImagen" [ngClass]="[pokes.evo1[i].tipos[1].toLowerCase()]">
+          {{ pokes.evo1[i].tipos[1] }}
+        </div>
+      </div>
+      </div>
+      <div *ngIf="pokes">
+        <div *ngFor="let trig of pokes.triggers[i]; let j = index">
+          <div *ngIf="pokes.triggers[i][j+1]!=false">
+            <b *ngIf="pokes&&pokes.triggers[i][j]==1&&j==0">♀️</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j]==2&&j==0">♂️</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==1"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i][j+1]}}.png"></b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==7">😄</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==13">⏰</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==8">⬆️</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==6">💅</b>
+            {{pokes.triggers[i][j+1]}}
           </div>
         </div>
       </div>
     </div>
+    <div class="cadaPoke" *ngFor="let Pokemon of pokes.evo2; let i = index">
+      <div [routerLink]="'/detalle/' + pokes.evo2[i].num">
+        {{pokes.evo2[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.evo2[i].imagen}}">
+        <div class="tipoImagen">
+          <div class="formatoTipoImagen" [ngClass]="pokes.evo2[i].tipos[0].toLowerCase()">
+            {{ pokes.evo2[i].tipos[0] }}
+          </div>
+          <div *ngIf="pokes.evo2[i].tipos[1] != null" class="formatoTipoImagen" [ngClass]="[pokes.evo2[i].tipos[1].toLowerCase()]">
+            {{ pokes.evo2[i].tipos[1] }}
+          </div>
+        </div>
+        </div>
+        <div *ngIf="pokes">
+          <div *ngFor="let trig of pokes.triggers[i+pokes.evo1.length]; let j = index">
+            <div *ngIf="pokes.triggers[i+pokes.evo1.length][j+1]!=false">
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j]==1&&j==0">♀️</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j]==2&&j==0">♂️</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==1"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i+pokes.evo1.length][j+1]}}.png"></b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==7">😄</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==13">⏰</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==8">⬆️</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==6">💅</b>
+              {{pokes.triggers[i+pokes.evo1.length][j+1]}}
+            </div>
+          </div>
+        </div>
+      </div>
   </div>

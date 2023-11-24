@@ -6,6 +6,8 @@ pokemons: Pokemon[];
 triggers?: Trigger[];
 }*/
 export interface Evolution {
-  pokemons: Pokemon[];
+  pokemon: Pokemon[];
+  evo1: Pokemon[];
+  evo2: Pokemon[];
   triggers: string[][];
   }/**/
