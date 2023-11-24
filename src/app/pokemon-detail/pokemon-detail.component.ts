@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { PokemonServiceService } from '../pokemon-service.service';
 import { PokemonDetail } from '../model/pokemon-detail';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, Subscription, map } from 'rxjs';
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -11,8 +11,15 @@ import { Chart } from 'chart.js/auto';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.css'],
 })
-export class PokemonDetailComponent {
+export class PokemonDetailComponent implements OnDestroy{
+
+  unsubs: Subscription | null = null;
+
   id: number = 0;
+  detalle: any;
+  imagenActual: string = '';
+  ctx:any;
+
   listaX4: String[] = [];
   listaX2: String[] = [];
   listaX1: String[] = [];
@@ -23,25 +30,33 @@ export class PokemonDetailComponent {
   listaX1Aux: String[] = [];
   listaX12Aux: String[] = [];
   listaX0Aux: String[] = [];
-  ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get(
-      'id'
-    ) as unknown as number;
-    this.cargaPokemon();
-  }
 
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.createPieChart();
-    }, 10); // Cambia este valor si es necesario, para dar tiempo al DOM para renderizar completamente.
-  }
-  detalle: any;
-  imagenActual: string = '';
   constructor(
     private pokemonService: PokemonServiceService,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient
-  ) {}
+
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.unsubs= this.activatedRoute.params.subscribe(data=>{
+      this.id = data['id'];    
+      this.borrarListas();
+      this.cargaPokemon();
+      Chart.getChart(this.ctx)?.destroy();
+      this.createPieChart();
+    })
+  }
+  
+  ngOnDestroy():void{
+    this.unsubs?.unsubscribe();
+  }
+
+  ngAfterViewInit(): void {
+    Chart.getChart(this.ctx)?.destroy();
+    this.createPieChart();
+  }
 
   cargaPokemon() {
     this.pokemonService
@@ -79,6 +94,7 @@ export class PokemonDetailComponent {
   getJsonData(): Observable<any> {
     return this.http.get<any>('./assets/tablaDeTipos.json');
   }
+
   returnJsonData(tipo: string, efectividad: number): Observable<String[]> {
     return this.getJsonData().pipe(
       map((data) => {
@@ -86,6 +102,7 @@ export class PokemonDetailComponent {
       })
     );
   }
+
   async cargarListas(tipo: string, n: number): Promise<void> {
     try {
       const data = await this.returnJsonData(tipo, n).toPromise();
@@ -145,13 +162,14 @@ export class PokemonDetailComponent {
       (elemento) => !listaX2copia.includes(elemento)
     );
   }
+
   createPieChart() {
+    
     setTimeout(() => {
-      const ctx = document.getElementById('grafica') as HTMLCanvasElement;
-      if (!ctx) {
+      this.ctx = document.getElementById('grafica') as HTMLCanvasElement;
+      if (!this.ctx) {
         return;
       }
-
       const data = {
         labels: [
           'HP ' + this.detalle.vida,
@@ -216,7 +234,18 @@ export class PokemonDetailComponent {
           },
         },
       };
-      new Chart(ctx, config);
+      new Chart(this.ctx, config);
     }, 1);
   }
+
+  borrarListas(){
+    this.listaX4= [];
+    this.listaX2= [];
+    this.listaX1= [];
+    this.listaX12= [];
+    this.listaX14 = [];
+    this.listaX0= [];
+  }
 }
+
+

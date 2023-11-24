@@ -7,5 +7,5 @@ triggers?: Trigger[];
 }*/
 export interface Evolution {
   pokemons: Pokemon[];
-  triggers: string[];
-  }
+  triggers: string[][];
+  }/**/

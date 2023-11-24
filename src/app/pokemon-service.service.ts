@@ -86,14 +86,16 @@ export class PokemonServiceService {
       getCadena(url: string) {
        return this.http.get(url).pipe(
       map((cadena: any) => {
-        return this.mapCadenaData(cadena);
+        return this.mapCadenaData(cadena,url);
       })
     );
 
       }
-      private mapCadenaData(cadena: any): Evolution {
+      private mapCadenaData(cadena: any,url:string): Evolution {
         let listaPokemons: Pokemon[]=[];
         let poke: any;
+        let detallesEvo:any[] = [];
+        let trigg:string[]=[];
         this.getPokemon(this.obtenerNumeroDesdeURL(cadena.chain.species.url)).subscribe((nuevoPokemon: Pokemon) => {
           poke=nuevoPokemon;
           listaPokemons.push(poke);
@@ -104,6 +106,22 @@ export class PokemonServiceService {
               poke=nuevoPokemon;
               listaPokemons.push(poke);
             });
+            for(let trigger in evo.evolution_details[0]){
+              if(evo.evolution_details[0][trigger]){
+                if(evo.evolution_details[0][trigger].name){
+                trigg.push(evo.evolution_details[0][trigger].name);
+                }else{
+                  trigg.push(evo.evolution_details[0][trigger]);
+                }
+              }else{
+                trigg.push(evo.evolution_details[0][trigger]);
+              //detallesEvo.push(evo2.evolution_details[0][trigger]);
+              }
+            }
+            detallesEvo.push(trigg);
+            trigg=[];
+            //console.log(detallesEvo);
+
           }
           for(let evo2 of evo.evolves_to){
             if(this.obtenerNumeroDesdeURL(evo.species.url)<494){
@@ -111,28 +129,24 @@ export class PokemonServiceService {
                 poke=nuevoPokemon;
                 listaPokemons.push(poke);
               });
+              for(let trigger in evo.evolution_details[0]){
+                if(evo2.evolution_details[0][trigger]){
+                  if(evo2.evolution_details[0][trigger].name){
+                  trigg.push(evo2.evolution_details[0][trigger].name);
+                  }else{
+                    trigg.push(evo2.evolution_details[0][trigger]);
+                  }
+                }else{
+                  trigg.push(evo2.evolution_details[0][trigger]);
+                //detallesEvo.push(evo2.evolution_details[0][trigger]);
+                }
+              }
+              detallesEvo.push(trigg);
+              trigg=[];
+              //console.log(detallesEvo);
             }
           }
         }
-        let detallesEvo:any[] = [];
-        let trigg:any;
-        detallesEvo[0] = [];
-        /*for(let evo of cadena.chain.evolves_to){
-          if(this.obtenerNumeroDesdeURL(evo.species.url)<494){
-            this.getTriggers(evo.evolution_details[0]).subscribe((nuevoTrigger: Trigger) => {
-              trigg=nuevoTrigger;
-              detallesEvo.push(trigg);
-            });
-          }
-          for(let evo2 of evo.evolves_to){
-            if(this.obtenerNumeroDesdeURL(evo.species.url)<494){
-              this.getTriggers(evo2.evolution_details[0]).subscribe((nuevoTrigger: Trigger) => {
-                trigg=nuevoTrigger;
-                detallesEvo.push(trigg);
-              });
-            }
-          }
-        }*/
         return {
           pokemons: listaPokemons,
           triggers: detallesEvo,
@@ -143,8 +157,8 @@ export class PokemonServiceService {
         const partes = url.split("/");
         return parseInt(partes[partes.length - 2]);
       }
-      getTriggers(url: string): Observable<Trigger> {
-        return this.http.get(url).pipe(
+      getTriggers(url: string,cadaUrl:string): Observable<Trigger> {
+        return this.http.get(url+cadaUrl).pipe(
           map((nuevoTrigger: any) => {
             return this.mapTriggerData(nuevoTrigger);
           })

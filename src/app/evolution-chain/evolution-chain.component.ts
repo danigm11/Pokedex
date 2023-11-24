@@ -12,20 +12,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EvolutionChainComponent {
   id: number = 0;
-  ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get(
-      'id'
-    ) as unknown as number;
-    this.cargaPokemon();
-  }
+  detalle: any;
+  pokes:any;
+
   constructor(
     private pokemonService: PokemonServiceService,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient
   ) {}
 
-  detalle: any;
-  pokes:any;
+  ngOnInit(): void {
+    this.id = this.activatedRoute.snapshot.paramMap.get(
+      'id'
+    ) as unknown as number;
+    this.cargaPokemon();
+    //this.separaTriggers();
+    //console.log("filete"+this.id )
+  }
+
   cargaPokemon() {
     this.pokemonService
       .getDetalles(this.id)
@@ -42,5 +46,17 @@ export class EvolutionChainComponent {
         this.pokes=evo;
         console.log(this.pokes);
       });
+  }
+  listaTriggers:string[][]=[];
+
+ separaTriggers(){
+  for (var i = 0; i < this.pokes.triggers.length; i++) {
+
+    for(let trig in this.pokes.triggers[i]){
+      if(trig!=null){
+        this.listaTriggers[i].push(trig);
+      }
+    }
+    }
   }
 }
