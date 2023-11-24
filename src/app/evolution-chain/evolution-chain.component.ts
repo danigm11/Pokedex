@@ -26,8 +26,6 @@ export class EvolutionChainComponent {
       'id'
     ) as unknown as number;
     this.cargaPokemon();
-    //this.separaTriggers();
-    //console.log("filete"+this.id )
   }
 
   cargaPokemon() {
@@ -44,19 +42,7 @@ export class EvolutionChainComponent {
       .getCadena(this.detalle.cadena)
       .subscribe((evo: Evolution)=>{
         this.pokes=evo;
-        console.log(this.pokes);
       });
   }
-  listaTriggers:string[][]=[];
 
- separaTriggers(){
-  for (var i = 0; i < this.pokes.triggers.length; i++) {
-
-    for(let trig in this.pokes.triggers[i]){
-      if(trig!=null){
-        this.listaTriggers[i].push(trig);
-      }
-    }
-    }
-  }
 }

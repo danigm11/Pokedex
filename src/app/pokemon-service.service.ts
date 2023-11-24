@@ -105,6 +105,7 @@ export class PokemonServiceService {
             this.getPokemon(this.obtenerNumeroDesdeURL(evo.species.url)).subscribe((nuevoPokemon: Pokemon) => {
               poke=nuevoPokemon;
               listaPokemons.push(poke);
+              listaPokemons.sort((a,b)=>a.num-b.num)
             });
             for(let trigger in evo.evolution_details[0]){
               if(evo.evolution_details[0][trigger]){
@@ -128,6 +129,7 @@ export class PokemonServiceService {
               this.getPokemon(this.obtenerNumeroDesdeURL(evo2.species.url)).subscribe((nuevoPokemon: Pokemon) => {
                 poke=nuevoPokemon;
                 listaPokemons.push(poke);
+                listaPokemons.sort((a,b)=>a.num-b.num)
               });
               for(let trigger in evo.evolution_details[0]){
                 if(evo2.evolution_details[0][trigger]){
@@ -144,6 +146,7 @@ export class PokemonServiceService {
               detallesEvo.push(trigg);
               trigg=[];
               //console.log(detallesEvo);
+              
             }
           }
         }
