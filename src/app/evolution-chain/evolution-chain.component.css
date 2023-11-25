@@ -1,13 +1,18 @@
+.todo{
+  display: flex;
+  justify-content: space-around;
+}
 .evo{
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   text-align: center;
+  flex-direction: column;
 }
 .cadaPoke{
   border: solid 1px;
   text-transform: capitalize;
-  width: 20%;
+  width: 15em;
 }
 .cadaPokeImagen{
   width: 100%;
