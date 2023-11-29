@@ -85,7 +85,8 @@
 }
 
 .poke {
-  height: 100%;
+  height: 20vw;
+  width: 20vw;
   border: 2px transparent rgba(220, 20, 60, 0);
   border-radius: 100%;
   text-align: center;
@@ -94,8 +95,8 @@
 
 .poke:hover {
   animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  height: 105%;
-  width: 105%;
+  height: 20vw;
+  width: 20vw;
   border: 2px solid crimson;
   border-color: crimson;
   border-radius: 100%;

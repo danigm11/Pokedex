@@ -11,14 +11,13 @@ import { Chart } from 'chart.js/auto';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.css'],
 })
-export class PokemonDetailComponent implements OnDestroy{
-
+export class PokemonDetailComponent implements OnDestroy {
   unsubs: Subscription | null = null;
 
   id: number = 0;
   detalle: any;
   imagenActual: string = '';
-  ctx:any;
+  ctx: any;
 
   listaX4: String[] = [];
   listaX2: String[] = [];
@@ -35,21 +34,19 @@ export class PokemonDetailComponent implements OnDestroy{
     private pokemonService: PokemonServiceService,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient
-
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.unsubs= this.activatedRoute.params.subscribe(data=>{
-      this.id = data['id'];    
+    this.unsubs = this.activatedRoute.params.subscribe((data) => {
+      this.id = data['id'];
       this.borrarListas();
       this.cargaPokemon();
       Chart.getChart(this.ctx)?.destroy();
       this.createPieChart();
-    })
+    });
   }
-  
-  ngOnDestroy():void{
+
+  ngOnDestroy(): void {
     this.unsubs?.unsubscribe();
   }
 
@@ -79,7 +76,7 @@ export class PokemonDetailComponent implements OnDestroy{
               }
             });
         };
-        
+
         loadLists();
       });
   }
@@ -164,7 +161,6 @@ export class PokemonDetailComponent implements OnDestroy{
   }
 
   createPieChart() {
-    
     setTimeout(() => {
       this.ctx = document.getElementById('grafica') as HTMLCanvasElement;
       if (!this.ctx) {
@@ -216,6 +212,11 @@ export class PokemonDetailComponent implements OnDestroy{
         type: 'radar',
         data: data,
         options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
           scales: {
             r: {
               angleLines: {
@@ -238,14 +239,12 @@ export class PokemonDetailComponent implements OnDestroy{
     }, 1);
   }
 
-  borrarListas(){
-    this.listaX4= [];
-    this.listaX2= [];
-    this.listaX1= [];
-    this.listaX12= [];
+  borrarListas() {
+    this.listaX4 = [];
+    this.listaX2 = [];
+    this.listaX1 = [];
+    this.listaX12 = [];
     this.listaX14 = [];
-    this.listaX0= [];
+    this.listaX0 = [];
   }
 }
-
-
