@@ -1,16 +1,74 @@
-div{
+/**div{
   display: flex;
-    background-color: rgb(17, 218, 134);
+    background-color: #66BFBF;
     justify-content: center;
     text-align: center;
     font-family: 'Pokemon Solid', sans-serif;
     font-size: xxx-large;
-    color:rgb(255, 204, 0);
+    color: rgb(255, 204, 0);
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: rgb(57, 134, 228);
-    border-radius: 100px;
     border: solid 1px black;
     padding-bottom: 1%;
+
+}**/
+
+.header{
+  display: relative;
+}
+
+.circle{
+  height: 7vw;
+  width: 7vw;
+  background-color: rgb(97, 159, 221);
+  border-radius: 100%;
+  position: absolute;
+  top: 3vw;
+  border: 2px solid white;
+    left: 6%;
+}
+
+.circle2 {
+  height: 2vw;
+  width: 2vw;
+  background-color: rgba(255, 255, 255, 0.514);
+  border-radius: 100px;
+  position: absolute;
+  top: 5vw;
+  left: 11%;
+}
+
+.text {
+  position: absolute;
+  top: 0.3vw;
+  left: 15%;
+      font-family: 'Pokemon Solid', sans-serif;
+      font-size: 4vw;
+      color: rgb(255, 204, 0);
+      -webkit-text-stroke-width: 0.070em;
+      -webkit-text-stroke-color: rgb(57, 134, 228);
+
+
+}
+.fondo{
+  display: absolute;
+    border-top: 6vw solid #C70039 ;
+    z-index: 1;
+      border-radius: 15px 15px 15px 0px;
+   
+}
+
+.rectangulo{
+  height: 0em;
+    width:2%;
+    display: absolute;
+    border-right: 20em solid  transparent;
+  border-top: 5vw solid #C70039;
+  border-left: 20vw solid #C70039;
+  z-index: 3;
+  top: 100%;
+    left: 100%;
+    border-radius: 0px 0px 0px 15px;
 
 }
 

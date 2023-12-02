@@ -11,8 +11,7 @@ import { Chart } from 'chart.js/auto';
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.css'],
 })
-export class PokemonDetailComponent implements OnDestroy{
-
+export class PokemonDetailComponent implements OnDestroy {
   unsubs: Subscription | null = null;
 
   id: number = 0;
@@ -39,8 +38,8 @@ export class PokemonDetailComponent implements OnDestroy{
   ) {}
 
   ngOnInit(): void {
-    this.unsubs= this.activatedRoute.params.subscribe(data=>{
-      this.id = data['id'];    
+    this.unsubs = this.activatedRoute.params.subscribe((data) => {
+      this.id = data['id'];
       this.borrarListas();
       this.cargaPokemon();
       Chart.getChart(this.ctx)?.destroy();
@@ -175,7 +174,6 @@ export class PokemonDetailComponent implements OnDestroy{
   }
 
   createPieChart() {
-    
     setTimeout(() => {
       this.ctx = document.getElementById('grafica') as HTMLCanvasElement;
       if (!this.ctx) {
@@ -227,6 +225,11 @@ export class PokemonDetailComponent implements OnDestroy{
         type: 'radar',
         data: data,
         options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
           scales: {
             r: {
               angleLines: {
@@ -249,14 +252,12 @@ export class PokemonDetailComponent implements OnDestroy{
     }, 1);
   }
 
-  borrarListas(){
-    this.listaX4= [];
-    this.listaX2= [];
-    this.listaX1= [];
-    this.listaX12= [];
+  borrarListas() {
+    this.listaX4 = [];
+    this.listaX2 = [];
+    this.listaX1 = [];
+    this.listaX12 = [];
     this.listaX14 = [];
-    this.listaX0= [];
+    this.listaX0 = [];
   }
 }
-
-
