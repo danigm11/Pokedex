@@ -19,7 +19,7 @@ export class PokemonDetailComponent implements OnDestroy{
   detalle: any;
   imagenActual: string = '';
   ctx:any;
-
+  jsonDatos:any;
   listaX4: String[] = [];
   listaX2: String[] = [];
   listaX1: String[] = [];
@@ -36,8 +36,7 @@ export class PokemonDetailComponent implements OnDestroy{
     private activatedRoute: ActivatedRoute,
     private http: HttpClient
 
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.unsubs= this.activatedRoute.params.subscribe(data=>{
@@ -46,9 +45,10 @@ export class PokemonDetailComponent implements OnDestroy{
       this.cargaPokemon();
       Chart.getChart(this.ctx)?.destroy();
       this.createPieChart();
+      //this.pokemonService.getPokemonMoves(this.id);  
     })
   }
-  
+  cont:number=0;
   ngOnDestroy():void{
     this.unsubs?.unsubscribe();
   }
@@ -57,7 +57,6 @@ export class PokemonDetailComponent implements OnDestroy{
     Chart.getChart(this.ctx)?.destroy();
     this.createPieChart();
   }
-
   cargaPokemon() {
     this.pokemonService
       .getDetalles(this.id)
@@ -65,24 +64,23 @@ export class PokemonDetailComponent implements OnDestroy{
         this.detalle = pokemons;
         this.imagenActual = this.detalle.imagen;
 
-        const loadLists = () => {
-          this.cargarListas(pokemons.tipos[0], 2)
-            .then(() => this.cargarListas(pokemons.tipos[0], 0))
-            .then(() => this.cargarListas(pokemons.tipos[0], 0.5))
-            .then(() => this.ngAfterViewInit())
-            .then(() => {
-              if (pokemons.tipos[1]) {
-                this.cargarListas(pokemons.tipos[1], 2)
-                  .then(() => this.cargarListas(pokemons.tipos[1], 0))
-                  .then(() => this.cargarListas(pokemons.tipos[1], 0.5))
-                  .then(() => this.ordenarListasX());
-              }
-            });
-        };
-        
-        loadLists();
+        this.getJsonData().subscribe((datos: any) => {
+          this.jsonDatos=datos;
+          this.cargarListas(this.detalle.tipos[0], 2)
+          this.cargarListas(this.detalle.tipos[0], 0)
+          this.cargarListas(this.detalle.tipos[0], 0.5)
+          this.ngAfterViewInit()
+                
+          if (pokemons.tipos[1]) {
+            this.cargarListas2(pokemons.tipos[1], 2)
+            this.cargarListas2(pokemons.tipos[1], 0)
+            this.cargarListas2(pokemons.tipos[1], 0.5)
+            this.ordenarListasX()
+            }
+        });
+       
       });
-  }
+    }
 
   cambiarImagen() {
     this.imagenActual =
@@ -103,21 +101,34 @@ export class PokemonDetailComponent implements OnDestroy{
     );
   }
 
-  async cargarListas(tipo: string, n: number): Promise<void> {
+  cargarListas(tipo: string, n: number){
+    
+  let data:string[]=[];
     try {
-      const data = await this.returnJsonData(tipo, n).toPromise();
-      if (data !== undefined) {
+    data= this.jsonDatos[tipo][n]
         if (n === 2) {
-          this.listaX2Aux = this.listaX2.slice();
           this.listaX2 = data;
         } else if (n === 0) {
-          this.listaX0Aux = this.listaX0.slice();
           this.listaX0 = data;
         } else if (n === 0.5) {
-          this.listaX12Aux = this.listaX12.slice();
           this.listaX12 = data;
         }
-      }
+    } catch (error) {
+      console.error('Error loading data:', error);
+    }
+  }
+  cargarListas2(tipo: string, n: number){
+    let data:string[]=[];
+    try {
+    data= this.jsonDatos[tipo][n]
+        if (n === 2) {
+          this.listaX2Aux = data;
+        } else if (n === 0) {
+          this.listaX0Aux = data;
+        } else if (n === 0.5) {
+          this.listaX12Aux = data;
+        }
+        
     } catch (error) {
       console.error('Error loading data:', error);
     }

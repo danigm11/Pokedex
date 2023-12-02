@@ -1,0 +1,33 @@
+<br><br><b class="lista" style="font-size: xx-large;">Lista de movimientos</b><br>
+<b class="lista" style="font-size: xx-large;">Nivel</b><br>
+<div style="display:flex; justify-content:space-around;">
+  <b>Name</b>  <b>Power</b> <b>Accuracy</b> <b>Description</b> <b>Category</b> <b>Type</b>
+</div><br><br>
+<div *ngFor="let Move of listaDetalleNivel" class="lista">
+  <table style="width:100%; text-align: center;">
+    <tr>
+  <td style="width:17%">{{Move.nombre}}</td>
+  <td style="width:17%">{{Move.potencia}}</td>
+  <td style="width:17%">{{Move.precicsion}}</td>
+  <td style="width:17%">{{Move.descrip}}</td>
+  <td style="width:17%"><img src="\assets\Images\{{Move.categ}}.png" class="img"></td>
+  <td style="width:17%" ngClass="{{Move.tipo}}">{{Move.tipo}}</td>
+</tr><br>
+</table>
+</div><br>
+<b class="lista" style="font-size: xx-large;">MT</b><br>
+  <div style="display:flex; justify-content:space-around;">
+    <b>Name</b>  <b>Power</b> <b>Accuracy</b> <b>Description</b> <b>Category</b> <b>Type</b>
+  </div><br><br>
+  <div *ngFor="let Move of listaDetalleMt" class="lista">
+    <table style="width:100%; text-align: center;">
+      <tr>
+    <td style="width:17%">{{Move.nombre}}</td>
+    <td style="width:17%">{{Move.potencia}}</td>
+    <td style="width:17%">{{Move.precicsion}}</td>
+    <td style="width:17%">{{Move.descrip}}</td>
+    <td style="width:17%"><img src="\assets\Images\{{Move.categ}}.png" class="img"></td>
+    <td style="width:17%" class="formatoTipoLista" ngClass="{{Move.tipo}}">{{Move.tipo}}</td>
+  </tr><br>
+  </table>
+  </div>

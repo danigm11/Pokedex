@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
+import { MoveListComponent } from './move-list/move-list.component';
 
 @NgModule({
 declarations: [
@@ -18,6 +19,7 @@ BotonVolverArribaComponent,
 HeaderComponent,
 PokemonDetailComponent,
 EvolutionChainComponent,
+MoveListComponent,
 ],
 imports: [
 BrowserModule,
