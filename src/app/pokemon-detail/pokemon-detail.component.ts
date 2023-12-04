@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { PokemonServiceService } from '../pokemon-service.service';
 import { PokemonDetail } from '../model/pokemon-detail';
+import { MoveListComponent } from '../move-list/move-list.component';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subscription, map } from 'rxjs';
@@ -44,7 +45,6 @@ export class PokemonDetailComponent implements OnDestroy {
       this.cargaPokemon();
       Chart.getChart(this.ctx)?.destroy();
       this.createPieChart();
-      //this.pokemonService.getPokemonMoves(this.id);  
     })
   }
   cont:number=0;

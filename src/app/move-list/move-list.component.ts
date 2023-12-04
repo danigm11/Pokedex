@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonServiceService } from '../pokemon-service.service';
 import { Move } from '../model/move';
@@ -9,6 +9,7 @@ import { Move } from '../model/move';
   styleUrls: ['./move-list.component.css']
 })
 export class MoveListComponent {
+@Input()
 id:number=0
 listaNivel: string[]=[]
 listaMt: string[]=[]
@@ -20,7 +21,10 @@ constructor(
   private activatedRoute: ActivatedRoute,
 ) {}
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id') as unknown as number;
+    this.leerListasMoves()
+  }
+  ngOnChanges(): void{
+    this.limpiarListas()
     this.leerListasMoves()
   }
 
@@ -41,5 +45,9 @@ constructor(
      }
     })
     
+  }
+  limpiarListas(){
+    this.listaDetalleNivel=[]
+    this.listaDetalleMt=[]
   }
 }
