@@ -1,17 +1,4 @@
-/**div{
-  display: flex;
-    background-color: #66BFBF;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Pokemon Solid', sans-serif;
-    font-size: xxx-large;
-    color: rgb(255, 204, 0);
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: rgb(57, 134, 228);
-    border: solid 1px black;
-    padding-bottom: 1%;
 
-}**/
 
 .header{
   display: relative;
