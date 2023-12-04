@@ -1,6 +1,18 @@
-html {
-    background-color:  rgb(175, 209, 243);;
+
+body.dark-theme {
+  background: #404040;
+  color: rgb(255, 255, 255);
 }
+
+body {
+  background: rgb(212, 210, 210);
+
+  transition:all 2s;
+  
+  color:rgb(0, 0, 0);
+}
+
+
 
 .water {
   background-color: #3899f8;
