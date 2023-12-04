@@ -5,7 +5,6 @@ import { map, mergeMap } from 'rxjs/operators';
 import { Pokemon } from './model/pokemon';
 import { PokemonDetail } from './model/pokemon-detail';
 import { Evolution } from './model/pokemon-cadena';
-import { Trigger } from './model/trigger';
 import { Moves } from './model/listas-movs';
 import { Move } from './model/move';
 

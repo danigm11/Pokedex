@@ -39,7 +39,8 @@
   </div>
 </div>
 
-<div class="listaVacia" *ngIf="listaMostrada.length==0">Pokémon error 404</div>
+<div class="listaVacia" *ngIf="listaMostrada.length==0 && filtroNombre.length==0"><img src="\assets\Images\pokeball.gif" class="img"></div>
+<div class="listaVacia" *ngIf="listaMostrada.length==0 && filtroNombre.length>0">Pokémon error 404</div>
 
 <div class="grid-container">
   
