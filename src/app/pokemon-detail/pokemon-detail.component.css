@@ -14,13 +14,17 @@
   border: 1px solid black;
   padding: 10px;
   text-transform: capitalize;
-  background-color: #CCEAF4;
+  background-color: rgba(0, 0, 0, 0.342);
 }
 
 .imagenContainer {
   grid-area: 1 / 1 / 1 / 3; /* Ajustado para ocupar desde la fila 2 hasta la fila 6 y todas las columnas */
   border: 1px solid black;
   padding: 10px;
+}
+
+.texto{
+  background-color: rgba(0, 0, 0, 0.342);
 }
 
 
@@ -48,7 +52,7 @@
   grid-area: 1 / 2 / 3 / 5; /* Ajustado para ocupar desde la fila 6 hasta la fila 7 y desde la columna 1 hasta la columna 3 */
   border: 1px solid black;
   padding: 10px;
-  background-color: #CCEAF4;
+  background-color:  rgba(0, 0, 0, 0.342);
   text-align: justify;
 }
 

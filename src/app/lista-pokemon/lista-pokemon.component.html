@@ -1,8 +1,8 @@
 <div style="display: flex;justify-content: space-between;" class="idiomaTema">
   <a style="cursor: pointer" (click)="cambiarIdioma()">
-    <img src="\assets\Images\bandera3.jpg" /></a>
-    <a c style="cursor: pointer" (click)="toggleDarkTheme()">
-      <img src="\assets\Images\noche.png"
+    <img  class="selector" src="\assets\Images\bandera3.jpg" /></a>
+    <a  style="cursor: pointer" (click)="toggleDarkTheme()">
+      <img class="selector" src="\assets\Images\noche.png"
     /></a>
 </div>
 <div class="buscador">
@@ -34,12 +34,12 @@
 
 <div *ngIf="mostrarSelector" [ngClass]="{ 'selectorTipos': mostrarSelector, 'selectorTipos2': !mostrarSelector, 'slide-animation': mostrarSelector }" id="selectorTipos">
   <div *ngFor="let TipoDeTipo of listaDeTipos; let i = index">
-    <div class="cadaTipo" *ngIf="listaDeTipos[i].status">
-      <button class="pulsado" [ngClass]="listaDeTipos[i].name" (click)="
+    <div class="divCadaTipo" *ngIf="listaDeTipos[i].status">
+      <button  class="cadaTipo"  class="pulsado" [ngClass]="listaDeTipos[i].name" (click)="
           listaDeTipos[i].status = !listaDeTipos[i].status; aplicarFiltros(ultimoPulsado)">{{listaDeTipos[i].name | traducir: 'es'}}</button>
     </div>
-    <div class="cadaTipo" *ngIf="!listaDeTipos[i].status">
-      <button class="noPulsado" [ngClass]="listaDeTipos[i].name"  (click)="
+    <div class="divCadaTipo"  *ngIf="!listaDeTipos[i].status">
+      <button  class="cadaTipo"class="noPulsado" [ngClass]="listaDeTipos[i].name"  (click)="
           listaDeTipos[i].status = !listaDeTipos[i].status; aplicarFiltros(ultimoPulsado)">{{listaDeTipos[i].name | traducir: 'es'}}</button>
     </div>
   </div>
