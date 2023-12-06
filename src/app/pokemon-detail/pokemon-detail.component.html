@@ -21,7 +21,7 @@
           class="formatoTipoImagen"
           [ngClass]="detalle.tipos[0].toLowerCase()"
         >
-          {{ detalle.tipos[0] }}
+          {{ detalle.tipos[0]| traducir:'es' }}
         </div>
 
         <div
@@ -29,14 +29,14 @@
           class="formatoTipoImagen"
           [ngClass]="[detalle.tipos[1].toLowerCase()]"
         >
-          {{ detalle.tipos[1] }}
+          {{ detalle.tipos[1]| traducir:'es' }}
         </div>
       </div>
     </div>
     <br />
     <div class="detalles">
-      <b>Peso: {{ detalle.peso }} kg</b><br />
-      <b>Altura: {{ detalle.altura }} m</b><br />
+      <b>{{"Weight"|traducir: 'es'}}: {{ detalle.peso }} kg</b><br />
+      <b>{{"Height"|traducir: 'es'}}: {{ detalle.altura }} m</b><br />
       <b>{{ detalle.descripcion }}</b
       ><br />
     </div>
@@ -50,45 +50,40 @@
       <div
         class="tipoFormato"
         *ngFor="let String of listaX4; let i = index"
-        [textContent]="listaX4[i]"
         [ngClass]="listaX4[i]"
-      ></div>
+      >{{listaX4[i]| traducir:'es'}}</div>
     </div>
     <div class="type" *ngIf="listaX2.length > 0">
       <b>X2</b>
       <div
         class="tipoFormato"
         *ngFor="let String of listaX2; let i = index"
-        [textContent]="listaX2[i]"
         [ngClass]="listaX2[i]"
-      ></div>
+      >{{listaX2[i]| traducir:'es'}}</div>
     </div>
     <div class="type" *ngIf="listaX12.length > 0">
       <b>X1/2</b>
       <div
         class="tipoFormato"
         *ngFor="let String of listaX12; let i = index"
-        [textContent]="listaX12[i]"
         [ngClass]="listaX12[i]"
-      ></div>
+      >{{listaX12[i]| traducir:'es'}}</div>
     </div>
     <div class="type" *ngIf="listaX14.length > 0">
       <b>X1/4</b>
       <div
         class="tipoFormato"
         *ngFor="let String of listaX14; let i = index"
-        [textContent]="listaX14[i]"
         [ngClass]="listaX14[i]"
-      ></div>
+      >{{listaX14[i]| traducir:'es'}}</div>
     </div>
     <div class="type" *ngIf="listaX0.length > 0">
       <b>X0</b>
       <div
         class="tipoFormato"
         *ngFor="let String of listaX0; let i = index"
-        [textContent]="listaX0[i]"
         [ngClass]="listaX0[i]"
-      ></div>
+      >{{listaX0[i] | traducir:'es'}}</div>
     </div>
   </div>
   <div class="tabla">

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 import { EvolutionChainComponent } from './evolution-chain/evolution-chain.component';
 import { MoveListComponent } from './move-list/move-list.component';
+import { TraducirPipe } from './traducir.pipe';
 
 @NgModule({
 declarations: [
@@ -20,6 +21,7 @@ HeaderComponent,
 PokemonDetailComponent,
 EvolutionChainComponent,
 MoveListComponent,
+TraducirPipe,
 ],
 imports: [
 BrowserModule,

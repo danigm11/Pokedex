@@ -68,10 +68,17 @@ export class PokemonServiceService {
     if (poke.types[1]) {
       tipos.push(poke.types[1].type.name);
     }
-
-    const desc = species.flavor_text_entries.find(
-      (entry: any) => entry.language.name === 'es' && entry.version.name === 'x'
-    ).flavor_text;
+    let desc:any
+    if(localStorage.getItem('language')=='es'){
+       desc = species.flavor_text_entries.find(
+        (entry: any) => entry.language.name === 'es' && entry.version.name === 'x'
+      ).flavor_text;
+    }else{
+       desc = species.flavor_text_entries.find(
+        (entry: any) => entry.language.name === 'en' && entry.version.name === 'x'
+      ).flavor_text;
+    }
+    
 
     return {
       nombre: poke.name,
@@ -223,11 +230,26 @@ export class PokemonServiceService {
     );
   }
   private mapMoveData(move: any): Move {
-    const descEntry = move.flavor_text_entries.find(
-      (entry: any) => entry.language.name === 'es'
-    );
+    let descEntry:any;
+    if(localStorage.getItem('language')=='es'){
+       descEntry = move.flavor_text_entries.find(
+        (entry: any) => entry.language.name === 'es'
+      );
+    }else{
+      descEntry = move.flavor_text_entries.find(
+        (entry: any) => entry.language.name === 'en'
+      );
+    }
     const desc = descEntry ? descEntry.flavor_text : 'Descripción no disponible';
-    const nombre = move.name || 'Nombre no disponible';
+    let nombre:any;
+    if(localStorage.getItem('language')=='en'){
+      nombre = move.name || 'Name not available';
+    }else{
+      nombre = move.names.find(
+        (name: any) => name.language.name === 'es'
+      ).name;
+    }
+     
     return {
       nombre: nombre,
       descrip: desc,

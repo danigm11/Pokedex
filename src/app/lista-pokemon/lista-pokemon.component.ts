@@ -16,35 +16,24 @@ export class ListaPokemonComponent implements OnInit {
   listaTodo: Pokemon[] = [];
   listaMostrada: Pokemon[] = [];
   filtroNombre: string = '';
-  listaDeTipos: tipoDeTipos[] = [
-    { name: 'bug', status: false },
-    { name: 'dark', status: false },
-    { name: 'dragon', status: false },
-    { name: 'electric', status: false },
-    { name: 'fairy', status: false },
-    { name: 'fighting', status: false },
-    { name: 'fire', status: false },
-    { name: 'flying', status: false },
-    { name: 'ghost', status: false },
-    { name: 'grass', status: false },
-    { name: 'ground', status: false },
-    { name: 'ice', status: false },
-    { name: 'normal', status: false },
-    { name: 'poison', status: false },
-    { name: 'psychic', status: false },
-    { name: 'rock', status: false },
-    { name: 'steel', status: false },
-    { name: 'water', status: false },
-  ];
+  listaDeTipos: tipoDeTipos[]=[];
   filtroTipo: string[] = [];
   numeroInicial: number = 1;
   numeroPokemon: number = 151;
   ultimoPulsado: number = 1;
 
+ cambiarIdioma(){
+  if(localStorage.getItem('language')=='en'){
+    localStorage.setItem('language','es')
+  }else{
+    localStorage.setItem('language','en')
+  }
+  this.ngOnInit()
+}
   constructor(private pokemonService: PokemonServiceService) {}
   ngOnInit(): void {
     this.cargaPokemon();
-    console.log(this.filtroTipo);
+    this.cargarListaTipos();
   }
   cargaPokemon() {
     this.pokemonService.getPokemons().subscribe((pokemons: Pokemon[]) => {
@@ -118,5 +107,27 @@ export class ListaPokemonComponent implements OnInit {
         this.filtroTipo.includes(Pokemon.tipos[0]) ||
         this.filtroTipo.includes(Pokemon.tipos[1])
     );
+  }
+  cargarListaTipos(){
+    this.listaDeTipos= [
+      { name: 'bug', status: false },
+      { name: 'dark', status: false },
+      { name: 'dragon', status: false },
+      { name: 'electric', status: false },
+      { name: 'fairy', status: false },
+      { name: 'fighting', status: false },
+      { name: 'fire', status: false },
+      { name: 'flying', status: false },
+      { name: 'ghost', status: false },
+      { name: 'grass', status: false },
+      { name: 'ground', status: false },
+      { name: 'ice', status: false },
+      { name: 'normal', status: false },
+      { name: 'poison', status: false },
+      { name: 'psychic', status: false },
+      { name: 'rock', status: false },
+      { name: 'steel', status: false },
+      { name: 'water', status: false },
+    ]
   }
 }

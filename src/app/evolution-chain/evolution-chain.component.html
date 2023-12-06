@@ -5,10 +5,10 @@
       {{pokes.pokemon[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.pokemon[i].imagen}}">
       <div class="tipoImagen">
         <div class="formatoTipoImagen" [ngClass]="pokes.pokemon[i].tipos[0].toLowerCase()">
-          {{ pokes.pokemon[i].tipos[0] }}
+          {{ pokes.pokemon[i].tipos[0]| traducir:'es' }}
         </div>
         <div *ngIf="pokes.pokemon[i].tipos[1] != null" class="formatoTipoImagen" [ngClass]="[pokes.pokemon[i].tipos[1].toLowerCase()]">
-          {{ pokes.pokemon[i].tipos[1] }}
+          {{ pokes.pokemon[i].tipos[1]| traducir:'es' }}
         </div>
       </div>
       </div>
@@ -20,10 +20,10 @@
       {{pokes.evo1[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.evo1[i].imagen}}">
       <div class="tipoImagen">
         <div class="formatoTipoImagen" [ngClass]="pokes.evo1[i].tipos[0].toLowerCase()">
-          {{ pokes.evo1[i].tipos[0] }}
+          {{ pokes.evo1[i].tipos[0]| traducir:'es' }}
         </div>
         <div *ngIf="pokes.evo1[i].tipos[1] != null" class="formatoTipoImagen" [ngClass]="[pokes.evo1[i].tipos[1].toLowerCase()]">
-          {{ pokes.evo1[i].tipos[1] }}
+          {{ pokes.evo1[i].tipos[1]| traducir:'es' }}
         </div>
       </div>
       </div>
@@ -51,10 +51,10 @@
         {{pokes.evo2[i].nombre}}<img class="cadaPokeImagen" src="{{pokes.evo2[i].imagen}}">
         <div class="tipoImagen">
           <div class="formatoTipoImagen" [ngClass]="pokes.evo2[i].tipos[0].toLowerCase()">
-            {{ pokes.evo2[i].tipos[0] }}
+            {{ pokes.evo2[i].tipos[0]| traducir:'es' }}
           </div>
           <div *ngIf="pokes.evo2[i].tipos[1] != null" class="formatoTipoImagen" [ngClass]="[pokes.evo2[i].tipos[1].toLowerCase()]">
-            {{ pokes.evo2[i].tipos[1] }}
+            {{ pokes.evo2[i].tipos[1]| traducir:'es' }}
           </div>
         </div>
         </div>
