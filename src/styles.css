@@ -3,12 +3,14 @@ body.dark-theme {
   color: rgb(255, 255, 255);
 }
 body.light-theme {
-  background: rgb(212, 210, 210);
+  background: rgb(238, 0, 0);
   color:rgb(0, 0, 0);
 }
 
 body{
   transition:all 1s;
+  background: rgb(186, 206, 202);
+  color:rgb(0, 0, 0);
 }
 
 .water {
