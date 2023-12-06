@@ -8,7 +8,7 @@
 <div class="buscador">
   <input class="buscaNombre" type="text" placeholder="🔍︎" [(ngModel)]="filtroNombre" (keyup)="aplicarFiltros(ultimoPulsado)" />
 </div>
-<div>
+<div class="buscador">
   <button class="Gen1" [class.boton-activo]="ultimoPulsado == 1" (click)="aplicarFiltros(1)">
     <b>I</b>
   </button>
@@ -45,8 +45,8 @@
   </div>
 </div>
 
-<div class="listaVacia" *ngIf="listaMostrada.length==0 && filtroNombre.length==0"><img src="\assets\Images\pokeball.gif" class="img"></div>
-<div class="listaVacia" *ngIf="listaMostrada.length==0 && filtroNombre.length>0">Pokémon error 404</div>
+<div class="listaVacia" *ngIf="listaMostrada.length==0 && filtroNombre.length==0 && filtroTipo.length==0"><img src="\assets\Images\pokeball.gif" class="img"></div>
+<div class="listaVacia" *ngIf="listaMostrada.length==0 && (filtroNombre.length>0 || filtroTipo.length>0)">Pokémon error 404</div>
 
 <div class="grid-container">
   
