@@ -183,9 +183,9 @@ export class PokemonDetailComponent implements OnDestroy {
         'Vida ' + this.detalle.vida,
         'Ataque ' + this.detalle.ataque,
         'Defensa ' + this.detalle.defensa,
-        'Ataque.Esp ' + this.detalle.ataque_especial,
-        'Defensa.Esp ' + this.detalle.defensa_especial,
         'Velocidad ' + this.detalle.velocidad,
+        'Defensa.Esp ' + this.detalle.defensa_especial,
+        'Ataque.Esp ' + this.detalle.ataque_especial,
       ]
       if(localStorage.getItem('language')=='en'){
   
@@ -193,9 +193,10 @@ export class PokemonDetailComponent implements OnDestroy {
           'HP ' + this.detalle.vida,
           'Attack ' + this.detalle.ataque,
           'Defense ' + this.detalle.defensa,
-          'S.Attack ' + this.detalle.ataque_especial,
-          'S.Defense ' + this.detalle.defensa_especial,
           'Speed ' + this.detalle.velocidad,
+          'S.Defense ' + this.detalle.defensa_especial,
+          'S.Attack ' + this.detalle.ataque_especial,
+          
         ]}
       const data = {
         labels,

@@ -1,4 +1,10 @@
-<button (click)="cambiarIdioma()">Cambiar idioma</button>
+<div style="display: flex;justify-content: space-between;" class="idiomaTema">
+  <a style="cursor: pointer" (click)="cambiarIdioma()">
+    <img src="\assets\Images\bandera3.jpg" /></a>
+    <a c style="cursor: pointer" (click)="toggleDarkTheme()">
+      <img src="\assets\Images\noche.png"
+    /></a>
+</div>
 <div class="buscador">
   <input class="buscaNombre" type="text" placeholder="🔍︎" [(ngModel)]="filtroNombre" (keyup)="aplicarFiltros(ultimoPulsado)" />
 </div>

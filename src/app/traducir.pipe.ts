@@ -102,6 +102,9 @@ const TRADUCCIONES = [
   },{
     en: 'TM',
     es: 'MT',
+  },{
+    en: 'Weaknesses',
+    es: 'Debilidades',
   }
 ];
 type Idioma = 'en' | 'es' ;

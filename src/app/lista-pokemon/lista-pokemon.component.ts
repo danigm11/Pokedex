@@ -30,6 +30,22 @@ export class ListaPokemonComponent implements OnInit {
   }
   this.ngOnInit()
 }
+
+toggleDarkTheme(): void {
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+  if (localStorage.getItem('theme') == 'dark') {
+    document.body.classList.remove('light-theme');
+    document.body.classList.toggle('dark-theme', !prefersLight);
+    localStorage.setItem('theme', 'light');
+  } else {
+    
+    document.body.classList.remove('dark-theme');
+    document.body.classList.toggle('light-theme', prefersLight);
+    localStorage.setItem('theme', 'dark');
+  }
+}
+
   constructor(private pokemonService: PokemonServiceService) {}
   ngOnInit(): void {
     this.cargaPokemon();
