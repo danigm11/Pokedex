@@ -88,7 +88,7 @@
 .poke {
   height: 20vw;
   width: 20vw;
-  border: 2px transparent rgba(220, 20, 60, 0);
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 100%;
   text-align: center;
   background: linear-gradient(to bottom, crimson 0, #ee1515 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
