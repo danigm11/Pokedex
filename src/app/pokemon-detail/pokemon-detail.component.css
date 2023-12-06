@@ -9,13 +9,6 @@
   margin: 0 auto; /* Centra el contenedor en la pantalla */
 }
 
-.dark-theme .nombre{
-    text-align: center;
-      border: 1px solid black;
-      padding: 10px;
-      text-transform: capitalize;
-      background-color: #080101;
-}
 .nombre {
   text-align: center;
   border: 1px solid black;

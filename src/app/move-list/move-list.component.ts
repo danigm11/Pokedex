@@ -20,9 +20,7 @@ constructor(
   private pokemonService: PokemonServiceService,
   private activatedRoute: ActivatedRoute,
 ) {}
-  ngOnInit(): void {
-    this.leerListasMoves()
-  }
+
   ngOnChanges(): void{
     this.limpiarListas()
     this.leerListasMoves()

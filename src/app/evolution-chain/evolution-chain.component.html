@@ -30,16 +30,16 @@
       <div *ngIf="pokes">
         <div *ngFor="let trig of pokes.triggers[i]; let j = index">
           <div *ngIf="pokes.triggers[i][j+1]!=false">
-            <b *ngIf="pokes&&pokes.triggers[i][j]==1&&j==0">♀️</b>
-            <b *ngIf="pokes&&pokes.triggers[i][j]==2&&j==0">♂️</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j]==1&&j==0">{{"Gender"|traducir: 'es'}}: ♀️</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j]==2&&j==0">{{"Gender"|traducir: 'es'}}: ♂️</b>
             <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==0"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i][j+1]}}.png"></b>
             <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==1"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i][j+1]}}.png"></b>
-            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==7">😄</b>
-            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==13">⏰</b>
-            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==8">⬆️</b>
-            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==4">📍</b>
-            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==6">💅</b>
-            {{pokes.triggers[i][j+1]}}
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==7">{{"Happiness"|traducir: 'es'}} 😄 : {{pokes.triggers[i][j+1]}}</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==13">{{"Time of Day"|traducir: 'es'}} ⏰: </b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==8">{{"Level"|traducir: 'es'}}⬆️: {{pokes.triggers[i][j+1]}}</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==4">{{"Location"|traducir: 'es'}} 📍: {{pokes.triggers[i][j+1]}}</b>
+            <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==6">{{"Beauty"|traducir: 'es'}} 💅: {{pokes.triggers[i][j+1]}}</b>
+            {{pokes.triggers[i][j+1]|traducir: 'es'}}
           </div>
         </div>
       </div>
@@ -61,16 +61,16 @@
         <div *ngIf="pokes">
           <div *ngFor="let trig of pokes.triggers[i+pokes.evo1.length]; let j = index">
             <div *ngIf="pokes.triggers[i+pokes.evo1.length][j+1]!=false">
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j]==1&&j==0">♀️</b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j]==2&&j==0">♂️</b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==0"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i+pokes.evo1.length][j+1]}}.png"></b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==1"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i+pokes.evo1.length][j+1]}}.png"></b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==7">😄</b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==13">⏰</b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==8">⬆️</b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==4">📍</b>
-              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==6">💅</b>
-              {{pokes.triggers[i+pokes.evo1.length][j+1]}}
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j]==1&&j==0">{{"Gender"|traducir: 'es'}}: ♀️</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j]==2&&j==0">{{"Gender"|traducir: 'es'}}: ♂️</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==0"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i+pokes.evo1.length][j+1]}}.png">{{pokes.triggers[i][j+1]}}</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==1"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/{{pokes.triggers[i+pokes.evo1.length][j+1]}}.png">{{pokes.triggers[i][j+1]}}</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==7">{{"Happiness"|traducir: 'es'}} 😄 : {{pokes.triggers[i][j+1]}}</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==13">{{"Time of Day"|traducir: 'es'}} ⏰: </b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==8">{{"Level"|traducir: 'es'}}⬆️: {{pokes.triggers[i][j+1]}}</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==4">{{"Location"|traducir: 'es'}} 📍: {{pokes.triggers[i][j+1]}}</b>
+              <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==6">{{"Beauty"|traducir: 'es'}} 💅: {{pokes.triggers[i][j+1]}}</b>
+              {{pokes.triggers[i+pokes.evo1.length][j+1]|traducir: 'es'}}
             </div>
           </div>
         </div>

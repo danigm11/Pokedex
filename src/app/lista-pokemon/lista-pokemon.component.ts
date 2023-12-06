@@ -23,6 +23,7 @@ export class ListaPokemonComponent implements OnInit {
   ultimoPulsado: number = 1;
 
  cambiarIdioma(){
+  this.listaMostrada=[]
   if(localStorage.getItem('language')=='en'){
     localStorage.setItem('language','es')
   }else{
