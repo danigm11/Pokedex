@@ -50,21 +50,24 @@
 
 <div class="grid-container">
   
-  <div *ngFor="let Pokemon of listaMostrada">
+  <div style="width: 95%;display: flex;justify-content: center;" *ngFor="let Pokemon of listaMostrada">
     <div class="poke" [routerLink]="'/detalle/' + Pokemon.num">
+      <div class="aaa">
       <p class="numero">
         <b>{{ Pokemon.num < 10 ? "00" : Pokemon.num < 100 ? "0" : "" }}{{ Pokemon.num }}</b>
       </p>
-      <img class="imagen" src="{{ Pokemon.imagen }}" alt="Texto alternativo de la imagen" /><br />
       <b class="nombre">{{ Pokemon.nombre }}</b><br />
+    </div>
+      <img class="imagen" src="{{ Pokemon.imagen }}" alt="Texto alternativo de la imagen" />
+    
+      
       <div class="type">
         <b [ngClass]="Pokemon.tipos[0].toLowerCase()">
           {{ Pokemon.tipos[0] |traducir: 'es'}}
         </b>
-        <b *ngIf="Pokemon.tipos[1] != null">
-          <b [ngClass]="['tipo2', Pokemon.tipos[1].toLowerCase()]">
-            {{ Pokemon.tipos[1] |traducir: 'es' }}
-          </b>
+        
+        <b *ngIf="Pokemon.tipos[1] != null" class="tipo2" [ngClass]="[Pokemon.tipos[1].toLowerCase()]">
+          {{ Pokemon.tipos[1] |traducir: 'es' }}
         </b>
       </div>
     </div>
