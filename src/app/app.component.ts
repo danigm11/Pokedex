@@ -15,11 +15,11 @@ const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
 if (localStorage.getItem('theme') == 'light') {
 
-  document.body.classList.toggle('dark-theme', !prefersLight);
-
-} else {
   document.body.classList.toggle('light-theme', prefersLight);
 
+} else {
+  
+  document.body.classList.toggle('dark-theme', !prefersLight);
 }
 }
 }

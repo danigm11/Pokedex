@@ -39,7 +39,7 @@
             <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==8">{{"Level"|traducir: 'es'}}⬆️: {{pokes.triggers[i][j+1]}}</b>
             <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==4">{{"Location"|traducir: 'es'}} 📍: {{pokes.triggers[i][j+1]}}</b>
             <b *ngIf="pokes&&pokes.triggers[i][j+1]&&j==6">{{"Beauty"|traducir: 'es'}} 💅: {{pokes.triggers[i][j+1]}}</b>
-            {{pokes.triggers[i][j+1]|traducir: 'es'}}
+            <b>{{pokes.triggers[i][j+1]|traducir: 'es'}}</b>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@
               <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==8">{{"Level"|traducir: 'es'}}⬆️: {{pokes.triggers[i][j+1]}}</b>
               <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==4">{{"Location"|traducir: 'es'}} 📍: {{pokes.triggers[i][j+1]}}</b>
               <b *ngIf="pokes&&pokes.triggers[i+pokes.evo1.length][j+1]&&j==6">{{"Beauty"|traducir: 'es'}} 💅: {{pokes.triggers[i][j+1]}}</b>
-              {{pokes.triggers[i+pokes.evo1.length][j+1]|traducir: 'es'}}
+              <b>{{pokes.triggers[i+pokes.evo1.length][j+1]|traducir: 'es'}}</b>
             </div>
           </div>
         </div>

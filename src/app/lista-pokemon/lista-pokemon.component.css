@@ -1,8 +1,7 @@
 .grid-container {
   display: grid;
   place-items: center;
-  width: 100%;
-  grid-gap: 6vw;
+  grid-gap: 4vw;
   grid-template-columns: repeat(5, 1fr);
   
   font-family: 'Comic sans', 'Arial Narrow', Arial, sans-serif;
@@ -37,20 +36,9 @@
   }
 }
 
-.numero,
-.type {
-  color: white;
-}
-
-.numero {
-  text-align: center;
-  background-color: grey;
-  width: 30px;
-  border-radius: 50%;
-  border-color: #222224;
-}
 .type{
   border-color: wheat;
+  color: white;
   text-transform: capitalize;
   width: 80%;
   display: flex;
@@ -59,6 +47,8 @@
 .nombre{
   width: 100%;
   text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 5px;
 }
 .water,
 .grass,
@@ -87,10 +77,12 @@
   font-size: 90%;
   text-shadow: 1px 1px 0px black,1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;
 }
-.aaa{
+.NombreNum{
   display: flex;
   height: 10%;
-  align-items: center;
+  width: 20vw;
+  min-width: 100px;
+  align-items: left;
 }
 .poke {
   display: flex;
@@ -111,6 +103,7 @@
   animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   border: 2px solid crimson;
   border-color: crimson;
+  cursor: pointer;
   background: linear-gradient(to bottom, rgb(223, 25, 65) 0%, crimson 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
 }
 
@@ -188,9 +181,7 @@
   min-width: 75vw;
   border-radius: 0.5em;
 }
-.tipo2{
 
-}
 /*.selectorTipos {
   display: none;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
