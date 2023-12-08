@@ -1,6 +1,8 @@
 .todo{
   display: flex;
   justify-content: space-around;
+  width: 100%;
+  align-items:center ;
 }
 .texto{
 background-color: rgba(0, 0, 0, 0.185);
@@ -12,6 +14,7 @@ font-weight: bold;
   flex-wrap: wrap;
   text-align: center;
   flex-direction: column;
+  cursor: pointer;
 }
 .cadaPoke{
   border: solid 1px;
@@ -20,4 +23,21 @@ font-weight: bold;
 }
 .cadaPokeImagen{
   width: 100%;
+}
+@media (min-width: 0px) {
+  .todo{
+    flex-direction: column;
+  }
+}
+@media (min-width: 620px) {
+  .todo{
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 950px) {
+  .todo{
+    align-items: center;
+    flex-direction: row;
+  }
 }

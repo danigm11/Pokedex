@@ -60,11 +60,11 @@
       <img class="imagen" src="{{ Pokemon.imagen }}" alt="Texto alternativo de la imagen" />
 
       <div class="type">
-        <b [ngClass]="Pokemon.tipos[0].toLowerCase()">
+        <b class="every" [ngClass]="Pokemon.tipos[0].toLowerCase()">
           {{ Pokemon.tipos[0] |traducir: 'es'}}
         </b>
         
-        <b *ngIf="Pokemon.tipos[1] != null" class="tipo2" [ngClass]="[Pokemon.tipos[1].toLowerCase()]">
+        <b class="every" *ngIf="Pokemon.tipos[1] != null" [ngClass]="[Pokemon.tipos[1].toLowerCase()]">
           {{ Pokemon.tipos[1] |traducir: 'es' }}
         </b>
       </div>

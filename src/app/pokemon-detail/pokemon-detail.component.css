@@ -8,6 +8,26 @@
   width: 90%; /* Puedes ajustar el ancho según tus necesidades */
   margin: 0 auto; /* Centra el contenedor en la pantalla */
 }
+@media (min-width: 0px) {
+  .parent{
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (min-width: 620px) {
+  .parent{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 950px) {
+  .parent{
+    display: grid;
+    align-items: center;
+    flex-direction: row;
+  }
+}
 
 .nombre {
   text-align: center;
@@ -31,6 +51,7 @@
 .imagen {
   width: 70%;
   padding-left: 15%;
+  cursor: pointer;
 }
 
 
@@ -45,14 +66,6 @@
   border: solid 1px black;
   width: 100%;
   margin-bottom: 0.3em;
-}
-
-.detalles {
-  grid-area: 1 / 2 / 3 / 5; /* Ajustado para ocupar desde la fila 6 hasta la fila 7 y desde la columna 1 hasta la columna 3 */
-  border: 1px solid black;
-  padding: 10px;
-  background-color:  rgba(0, 0, 0, 0.342);
-  text-align: justify;
 }
 
 .stats {
@@ -77,11 +90,19 @@
 
 .tabla {
   grid-area: 1 / 4 / 2 / 6; /* Ajustado para ocupar desde la fila 2 hasta la fila 6 y desde la columna 4 hasta la columna 6 */
+  display: grid;
+  place-items: center;
   border: 1px solid black;
   padding: 10px;
+  min-height: 80%;
+  min-width: 300px;
   
+}
+#grafica{
+  min-width: 280px;
+  min-height: 280px;
 }
 
 .grafica {
-  width: 100%;
+  width: 72%;
 }
