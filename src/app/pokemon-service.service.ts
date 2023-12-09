@@ -122,7 +122,7 @@ export class PokemonServiceService {
       listaPokemonsInicial.push(poke);
     });
     for (let evo of cadena.chain.evolves_to) {
-      if (this.obtenerNumeroDesdeURL(evo.species.url) < 494) {
+      if (this.obtenerNumeroDesdeURL(evo.species.url) <= 493) {
         this.getPokemon(this.obtenerNumeroDesdeURL(evo.species.url)).subscribe(
           (nuevoPokemon: Pokemon) => {
             poke = nuevoPokemon;
@@ -145,7 +145,7 @@ export class PokemonServiceService {
         trigg = [];
       }
       for (let evo2 of evo.evolves_to) {
-        if (this.obtenerNumeroDesdeURL(evo.species.url) < 494) {
+        if (this.obtenerNumeroDesdeURL(evo2.species.url) <= 493) {
           this.getPokemon(
             this.obtenerNumeroDesdeURL(evo2.species.url)
           ).subscribe((nuevoPokemon: Pokemon) => {
@@ -259,7 +259,6 @@ export class PokemonServiceService {
           detail.version_group.name === 'platinum'
       ).machine.url).subscribe((moves:any)=>{
         nivel=moves.item.name
-        console.log(nivel)
       });
     }
 
