@@ -92,7 +92,7 @@
   grid-area: 1 / 4 / 2 / 6; /* Ajustado para ocupar desde la fila 2 hasta la fila 6 y desde la columna 4 hasta la columna 6 */
   display: grid;
   place-items: center;
-  border: 1px solid black;
+
   padding: 10px;
   min-height: 80%;
   min-width: 300px;
