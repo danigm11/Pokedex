@@ -1,22 +1,24 @@
 <br /><br /><b class="lista" style="font-size: xx-large">{{"Move List"| traducir:'es'}}</b
 ><br />
 <b class="lista" style="font-size: xx-large">{{"Level"| traducir:'es'}}</b><br />
-<div style="display: flex; justify-content: space-around">
-  <b>{{"Name"| traducir:'es'}}</b> <b>{{"Power"| traducir:'es'}}</b> <b>{{"Accuracy"| traducir:'es'}}</b>
-  <b>{{"Description"| traducir:'es'}}</b> <b>{{"Category"| traducir:'es'}}</b><b>{{"Type"| traducir:'es'}}</b>
-</div>
+<table style="width: 100%;">
+  <tr>
+    <td>{{"Level"| traducir:'es'}}</td> <td>{{"Name"| traducir:'es'}}</td> <td>{{"Power"| traducir:'es'}}</td> <td>{{"Accuracy"| traducir:'es'}}</td>
+  <td>{{"Category"| traducir:'es'}}</td><td>{{"Type"| traducir:'es'}}</td>
+</tr>
+</table>
 <br /><br />
 <div *ngFor="let Move of listaDetalleNivel" class="lista">
   <table style="width: 100%; text-align: center">
     <tr>
-      <td class="nombre" style="width: 17%">{{ Move.nombre }}</td>
-      <td style="width: 17%">{{ Move.potencia }}</td>
-      <td style="width: 17%">{{ Move.precicsion }}</td>
-      <td style="width: 17%">{{ Move.descrip }}</td>
-      <td style="width: 17%">
+      <td >{{ Move.nivel }}</td>
+      <td class="texto" >{{ Move.nombre }}</td>
+      <td >{{ Move.potencia }}</td>
+      <td >{{ Move.precicsion }}</td>
+      <td >
         <img src="\assets\Images\{{ Move.categ }}.png" class="img" />
       </td>
-      <td style="width: 17%">
+      <td >
         <img src="\assets\Images\{{ Move.tipo }}.png" class="img" />
       </td>
     </tr>
@@ -26,22 +28,23 @@
 <br />
 <div *ngIf="listaDetalleMt.length>0">
 <b class="lista" style="font-size: xx-large">{{"TM"| traducir:'es'}}</b><br />
-<div style="display: flex; justify-content: space-around">
-  <b>{{"Name"| traducir:'es'}}</b> <b>{{"Power"| traducir:'es'}}</b> <b>{{"Accuracy"| traducir:'es'}}</b>
-  <b>{{"Description"| traducir:'es'}}</b> <b>{{"Category"| traducir:'es'}}</b><b>{{"Type"| traducir:'es'}}</b>
-</div>
+<table style="width: 100%;">
+  <tr>
+  <td>{{"Name"| traducir:'es'}}</td> <td>{{"Power"| traducir:'es'}}</td> <td>{{"Accuracy"| traducir:'es'}}</td>
+  <td>{{"Category"| traducir:'es'}}</td><td>{{"Type"| traducir:'es'}}</td>
+</tr>
+</table>
 <br /><br />
 <div *ngFor="let Move of listaDetalleMt" class="lista">
-  <table style="width: 100%; text-align: center">
+  <table style="width: 100%;">
     <tr>
-      <td class="nombre" style="width: 17%">{{ Move.nombre }}</td>
-      <td style="width: 17%">{{ Move.potencia }}</td>
-      <td style="width: 17%">{{ Move.precicsion }}</td>
-      <td style="width: 17%">{{ Move.descrip }}</td>
-      <td style="width: 17%">
+      <td class="texto">{{ Move.nombre }}</td>
+      <td >{{ Move.potencia }}</td>
+      <td >{{ Move.precicsion }}</td>
+      <td >
         <img src="\assets\Images\{{ Move.categ }}.png" class="img" />
       </td>
-      <td style="width: 17%">
+      <td >
         <img src="\assets\Images\{{ Move.tipo }}.png" class="img" />
       </td>
     </tr>

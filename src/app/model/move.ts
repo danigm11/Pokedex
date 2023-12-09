@@ -5,6 +5,5 @@ export interface Move {
   descrip: string;
   categ: string;
   precicsion:number;
-  /*nivel: string;
-  mt: string;*/
+  nivel: string;
   }

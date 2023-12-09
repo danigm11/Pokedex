@@ -1,4 +1,6 @@
+import { MoveSimple } from "./move-simple";
+
 export interface Moves {
-  nivel:string[];
-  mts: string[];
+  nivel:MoveSimple[];
+  mts: MoveSimple[];
   }

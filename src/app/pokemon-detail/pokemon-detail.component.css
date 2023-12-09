@@ -5,7 +5,7 @@
   grid-template-rows: auto auto auto auto auto;
   grid-column-gap: 2em;
   grid-row-gap: 0px;
-  width: 90%; /* Puedes ajustar el ancho según tus necesidades */
+  width: 90%; 
   margin: 0 auto; /* Centra el contenedor en la pantalla */
 }
 @media (min-width: 0px) {
@@ -94,17 +94,12 @@
   place-items: center;
   border: 1px solid black;
   padding: 10px;
-  min-height: 80%;
-  min-width: 300px;
-  
+  min-width: 20%;
+  min-height: 100%;
 }
-#grafica{
-  min-width: 280px;
-  min-height: 280px;
-}
-
-.grafica {
-  width: 72%;
+.grafica{
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .detalles{
