@@ -1,8 +1,8 @@
 <div style="display: flex;justify-content: space-between;" class="idiomaTema">
   <a style="cursor: pointer" (click)="cambiarIdioma()">
-    <img  class="selector" src="\assets\Images\bandera3.png" /></a>
+    <img  class="selector" src="assets\Images\bandera3.png" /></a>
     <a  style="cursor: pointer" (click)="toggleDarkTheme()">
-      <img class="selector" src="\assets\Images\noche.png"
+      <img class="selector" src="assets\Images\noche.png"
     /></a>
 </div>
 <div class="buscador">
@@ -27,7 +27,7 @@
 </div>
 <div class="divBuscador">
   <a style="cursor: pointer" (click)="mostrarSelector = !mostrarSelector">
-    <img [ngClass]="{ 'rotate-animation': mostrarSelector, 'imagenTipos': !mostrarSelector}" src="\assets\Images\pokemon.png" /></a>
+    <img [ngClass]="{ 'rotate-animation': mostrarSelector, 'imagenTipos': !mostrarSelector}" src="assets\Images\pokemon.png" /></a>
 </div>
 
 <!--Selector Oculto-->
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-<div class="listaVacia" *ngIf="listaMostrada.length==0 && filtroNombre.length==0 && filtroTipo.length==0"><img src="\assets\Images\pokeball.gif" class="img"></div>
+<div class="listaVacia" *ngIf="listaMostrada.length==0 && filtroNombre.length==0 && filtroTipo.length==0"><img src="assets\Images\pokeball.gif" class="img"></div>
 <div class="listaVacia" *ngIf="listaMostrada.length==0 && (filtroNombre.length>0 || filtroTipo.length>0)">Pokémon error 404</div>
 
 <div class="grid-container">
