@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonServiceService } from '../pokemon-service.service';
 import { Move } from '../model/move';
+import { MoveSimple } from '../model/move-simple';
 
 @Component({
   selector: 'app-move-list',
@@ -9,17 +10,17 @@ import { Move } from '../model/move';
   styleUrls: ['./move-list.component.css']
 })
 export class MoveListComponent {
-@Input()
-id:number=0
-listaNivel: string[]=[]
-listaMt: string[]=[]
-listaDetalleNivel: Move[]=[]
-listaDetalleMt: Move[]=[]
+  @Input()
+  id:number=0
+  listaNivel: MoveSimple[]=[]
+  listaMt: MoveSimple[]=[]
+  listaDetalleNivel: Move[]=[]
+  listaDetalleMt: Move[]=[]
 
-constructor(
-  private pokemonService: PokemonServiceService,
-  private activatedRoute: ActivatedRoute,
-) {}
+  constructor(
+    private pokemonService: PokemonServiceService,
+    private activatedRoute: ActivatedRoute,
+  ) {}
 
   ngOnChanges(): void{
     this.limpiarListas()
@@ -28,22 +29,26 @@ constructor(
 
   leerListasMoves(){
     this.pokemonService.getPokemonMoves(this.id).subscribe((moves:any)=>{
+
      this.listaNivel= moves.nivel
      this.listaMt= moves.mts
 
-    for(let url of this.listaNivel){
-      this.pokemonService.getMove(url).subscribe((movimiento:any)=>{
+    for(let move of this.listaNivel){
+      this.pokemonService.getMove(move.url,move.nivel).subscribe((movimiento:any)=>{
         this.listaDetalleNivel.push(movimiento)
+        this.listaDetalleNivel.sort((a, b) => parseInt(a.nivel) - parseInt(b.nivel));
+
       })
      }
-     for(let url of this.listaMt){
-      this.pokemonService.getMove(url).subscribe((movimiento:any)=>{
+     for(let move of this.listaMt){
+      this.pokemonService.getMove(move.url,move.nivel).subscribe((movimiento:any)=>{
         this.listaDetalleMt.push(movimiento)
+        
       })
      }
     })
-    
   }
+
   limpiarListas(){
     this.listaDetalleNivel=[]
     this.listaDetalleMt=[]

@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Pokemon } from './model/pokemon';
 import { PokemonDetail } from './model/pokemon-detail';
 import { Evolution } from './model/pokemon-cadena';
 import { Moves } from './model/listas-movs';
 import { Move } from './model/move';
+import { MoveSimple } from './model/move-simple';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,7 @@ export class PokemonServiceService {
       })
     );
   }
+
   getPokemons(): Observable<Pokemon[]> {
     var observables: Observable<Pokemon>[] = [];
 
@@ -79,7 +81,6 @@ export class PokemonServiceService {
       ).flavor_text;
     }
     
-
     return {
       nombre: poke.name,
       num: poke.id,
@@ -106,6 +107,7 @@ export class PokemonServiceService {
       })
     );
   }
+
   private mapCadenaData(cadena: any, url: string): Evolution {
     let listaPokemonsInicial: Pokemon[] = [];
     let listaPokemons: Pokemon[] = [];
@@ -137,12 +139,10 @@ export class PokemonServiceService {
             }
           } else {
             trigg.push(evo.evolution_details[0][trigger]);
-            //detallesEvo.push(evo2.evolution_details[0][trigger]);
           }
         }
         detallesEvo.push(trigg);
         trigg = [];
-        //console.log(detallesEvo);
       }
       for (let evo2 of evo.evolves_to) {
         if (this.obtenerNumeroDesdeURL(evo.species.url) < 494) {
@@ -162,12 +162,10 @@ export class PokemonServiceService {
               }
             } else {
               trigg.push(evo2.evolution_details[0][trigger]);
-              //detallesEvo.push(evo2.evolution_details[0][trigger]);
             }
           }
           detallesEvo.push(trigg);
           trigg = [];
-          //console.log(detallesEvo);
         }
       }
     }
@@ -193,43 +191,48 @@ export class PokemonServiceService {
   }
 
   private mapPokemonMoveData(poke: any): Moves {
-    let movesNivel: string[] = [];
-    let movesMT: string[] = [];
+    const movesNivel: MoveSimple[] = [];
+    const movesMT: MoveSimple[] = [];
+  
+    poke.moves.forEach((move: any) => {
+      
+      const levelUpDetails = move.version_group_details.find(
+        (detail: any) =>
+          detail.version_group.name === 'platinum' &&
+          detail.move_learn_method.name === 'level-up'
+      );
 
-    movesNivel = poke.moves
-      .filter((move: any) =>
-        move.version_group_details.some(
-          (detail: any) =>
-            detail.version_group.name === 'platinum' &&
-            detail.move_learn_method.name === 'level-up'
-        )
-      )
-      .map((move: any) => move.move.url);
-
-    movesMT = poke.moves
-      .filter((move: any) =>
-        move.version_group_details.some(
-          (detail: any) =>
-            detail.version_group.name === 'platinum' &&
-            detail.move_learn_method.name === 'machine'
-        )
-      )
-      .map((move: any) => move.move.url);
-
+      const machineDetails = move.version_group_details.find(
+        (detail: any) =>
+          detail.version_group.name === 'platinum' &&
+          detail.move_learn_method.name === 'machine'
+      );
+  
+      if (levelUpDetails) {
+        const level = levelUpDetails.level_learned_at;
+        movesNivel.push({ url: move.move.url, nivel: level.toString() });
+      }
+  
+      if (machineDetails) {
+        movesMT.push({ url: move.move.url, nivel: '0' });
+      }
+    });
+  
     return {
       nivel: movesNivel,
       mts: movesMT,
     };
   }
-
-  getMove(url: string): Observable<Move>{
+  
+  getMove(url: string,nivel: string): Observable<Move>{
     return this.http.get(url).pipe(
       map((nuevoMovimiento: any) => {
-        return this.mapMoveData(nuevoMovimiento);
+        return this.mapMoveData(nuevoMovimiento,nivel);
       })
     );
   }
-  private mapMoveData(move: any): Move {
+
+  private mapMoveData(move: any,nivel:string): Move {
     let descEntry:any;
     if(localStorage.getItem('language')=='es'){
        descEntry = move.flavor_text_entries.find(
@@ -249,7 +252,17 @@ export class PokemonServiceService {
         (name: any) => name.language.name === 'es'
       ).name;
     }
-     
+
+     if(Number(nivel)==0){
+      this.http.get(move.machines.find(
+        (detail: any) =>
+          detail.version_group.name === 'platinum'
+      ).machine.url).subscribe((moves:any)=>{
+        nivel=moves.item.name
+        console.log(nivel)
+      });
+    }
+
     return {
       nombre: nombre,
       descrip: desc,
@@ -257,6 +270,7 @@ export class PokemonServiceService {
       tipo: move.type ? move.type.name : 'Tipo no disponible',
       potencia: move.power,
       precicsion: move.accuracy,
+      nivel:nivel,
     };
   }
 }

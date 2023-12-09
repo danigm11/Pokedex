@@ -42,7 +42,6 @@ export class EvolutionChainComponent {
       .getCadena(this.detalle.cadena)
       .subscribe((evo: Evolution)=>{
         this.pokes=evo;
-        console.log(evo)
       });
   }
 

@@ -11,6 +11,7 @@ body{
   transition:all 1s;
   background: rgb(186, 206, 202);
   color:rgb(0, 0, 0);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .water {
