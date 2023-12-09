@@ -3,37 +3,28 @@
   place-items: center;
   grid-gap: 4vw;
   grid-template-columns: repeat(5, 1fr);
-  font-family: 'Comic sans', 'Arial Narrow', Arial;
 }
 @media (min-width: 0px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
-
 @media (min-width: 660px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (min-width: 990px) {
   .grid-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 @media (min-width: 1350px) {
   .grid-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
 .type{
-  border-color: wheat;
-  color: white;
-  text-transform: capitalize;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -75,7 +66,6 @@
   text-align: center;
   background: linear-gradient(to bottom, crimson 0, #ee1515 45%, #222224 45%, #222224 60%, rgba(255, 255, 255, 0.685) 60%, rgba(255, 255, 255, 0.199));
 }
-
 .poke:hover {
   animation: shake 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   border: 2px solid crimson;
@@ -83,7 +73,6 @@
   cursor: pointer;
   background: linear-gradient(to bottom, rgb(223, 25, 65) 0%, crimson 45%, #222224 45%, #222224 60%, #f0f0f0 60%, #f0f0f0 100%);
 }
-
 @keyframes shake {
 
   0%,
@@ -127,7 +116,6 @@
     transform: translateX(-5px) rotate(-2.5deg);
   }
 }
-
 .imagen {
   width: 60%;
   height: 60%;
@@ -147,7 +135,6 @@
   padding-bottom: 10px;
   justify-content: center;
 }
-
 .selector{
   width: 5em;
 }
@@ -157,7 +144,6 @@
   min-width: 75vw;
   border-radius: 0.5em;
 }
-
 .selectorTipos {
   height: 0px;
   display: flex;
@@ -172,19 +158,14 @@
   flex-wrap: wrap;
   justify-content: center;
   opacity: 0;
-  animation: slideOut 1s;
 }
 .cadaTipo{
   display: flex;
-    color: #fff;
-    margin: 8px;
-    width: 4em;   
-    font-size: 2em;
-    text-shadow: 22px 2px 0px black,2px -2px 0px black,-1px 1px 0px black,-1px -1px 0px black;
-    text-transform: capitalize;
+  margin: 8px;
+  width: 4em;   
+  font-size: 2em;
 }
 .noPulsado{
-  border-color: black;
   text-transform: capitalize;
   text-shadow: 1px 1px 0px black,1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;
 }
@@ -201,10 +182,6 @@ button {
   color: white;
   border-radius: 5px;
 }
-.botonIdioma{
-  background-image: "bandera.jpg";
-}
-
 .Gen1 {
   background: linear-gradient(to right, crimson 0%, crimson 50%, green 50%, green 100%);
 }
@@ -228,13 +205,11 @@ button {
 .boton-activo {
   border: 3px solid rgb(255, 174, 0);
 }
-
 .imagenTipos{
   width: 5em;
   animation: rotateb 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   margin-bottom: 15px;
 }
-
 .rotate-animation {
   width: 5em;
   animation: rotate 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -247,7 +222,6 @@ button {
       100% {
         transform: rotate(360deg);
       }
-  
 }
 
 @keyframes rotateb {
@@ -257,9 +231,7 @@ button {
   100% {
     transform: rotate(0deg);
   }
-  
 }
-
 .divBuscador{
   display: flex;
   justify-content: center;
@@ -270,19 +242,6 @@ button {
   height: 100%;
   opacity: 1;
 }
-@keyframes slideOut {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(-0%);
-    opacity: 0;
-    display: none;
-  }
-}
-
 @keyframes slide {
   from {
     transform: translateY(-0%);
