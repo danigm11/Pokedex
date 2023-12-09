@@ -181,12 +181,17 @@
     width: 4em;   
     font-size: 2em;
     text-shadow: 22px 2px 0px black,2px -2px 0px black,-1px 1px 0px black,-1px -1px 0px black;
+    text-transform: capitalize;
 }
 .noPulsado{
   border-color: black;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 0px black,1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;
 }
 .pulsado{
   border-color: whitesmoke;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 0px black,1px -1px 0px black,-1px 1px 0px black,-1px -1px 0px black;
 }
 button {
   margin-left: 10px;

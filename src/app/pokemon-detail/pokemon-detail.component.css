@@ -106,3 +106,8 @@
 .grafica {
   width: 72%;
 }
+
+.detalles{
+  border: solid black 1px;
+  background-color: rgba(0, 0, 0, 0.342);
+}
