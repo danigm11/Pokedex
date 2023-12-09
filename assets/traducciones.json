@@ -1,0 +1,49 @@
+{
+"es":{
+"grass":"planta",
+"fire":"fuego",
+"water":"agua",
+"steel":"acero",
+"bug":"bicho",
+"fairy":"hada",
+"dark":"siniestro",
+"ghost":"fantasma",
+"ice":"hielo",
+"fighting":"lucha",
+"psychic":"psíquico",
+"ground":"tierra",
+"rock":"roca",
+"dragon":"dragon",
+"flying":"volador",
+"poison":"veneno",
+"normal": "normal",
+"electric": "eléctrico",
+"height":"altura",
+"weight":"peso"
+
+},
+
+
+"en":{
+  "grass":"grass",
+  "fire":"fire",
+  "water":"water",
+  "steel":"steel",
+  "bug":"bug",
+  "fairy":"fairy",
+  "dark":"dark",
+  "ghost":"ghost",
+  "ice":"ice",
+  "fighting":"fighting",
+  "psychic":"psychic",
+  "ground":"ground",
+  "rock":"rock",
+  "dragon":"dragon",
+  "flying":"flying",
+  "poison":"poison",
+  "normal": "normal",
+  "electric": "electric",
+  "height":"height",
+  "weight":"weight"
+}
+}

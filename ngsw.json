@@ -1,0 +1,135 @@
+{
+  "configVersion": 1,
+  "timestamp": 1702158344508,
+  "index": "https://danigm11.github.io/Pokedex/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://danigm11.github.io/Pokedex/favicon.ico",
+        "https://danigm11.github.io/Pokedex/index.html",
+        "https://danigm11.github.io/Pokedex/main.03dc1bc7ff5a53ca.js",
+        "https://danigm11.github.io/Pokedex/manifest.webmanifest",
+        "https://danigm11.github.io/Pokedex/polyfills.723be2771ac514b8.js",
+        "https://danigm11.github.io/Pokedex/runtime.091769b3e6325dd0.js",
+        "https://danigm11.github.io/Pokedex/styles.4edb9aaaef5f3db7.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://danigm11.github.io/Pokedex/assets/Images/bandera3.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/bug.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/dark.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/dragon.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/electric.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/fairy.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/fighting.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/fire.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/flying.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/ghost.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/grass.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/ground.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/ice.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/noche.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/normal.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/physical.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/poison.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/pokeball.gif",
+        "https://danigm11.github.io/Pokedex/assets/Images/pokemon.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/psychic.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/rock.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/special.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/status.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/steel.png",
+        "https://danigm11.github.io/Pokedex/assets/Images/water.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-128x128.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-144x144.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-152x152.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-192x192.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-384x384.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-512x512.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-72x72.png",
+        "https://danigm11.github.io/Pokedex/assets/icons/icon-96x96.png",
+        "https://danigm11.github.io/Pokedex/assets/tablaDeTipos.json",
+        "https://danigm11.github.io/Pokedex/assets/traducciones.json"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://danigm11.github.io/Pokedex/assets/Images/bandera3.png": "e8240b1d58a0528d3956cd516f400409b47801f2",
+    "https://danigm11.github.io/Pokedex/assets/Images/bug.png": "e97d46dccbb120d306bc7737a772df38e9e646f1",
+    "https://danigm11.github.io/Pokedex/assets/Images/dark.png": "9ec7c521d8d9fb8e76663fd0bfefccd6f55216f7",
+    "https://danigm11.github.io/Pokedex/assets/Images/dragon.png": "ad70ef1bf777676031a434f99531ec98283cc702",
+    "https://danigm11.github.io/Pokedex/assets/Images/electric.png": "eb81777d787f0d4dc93c6ed0e7b16bb1ee284d1b",
+    "https://danigm11.github.io/Pokedex/assets/Images/fairy.png": "393fa3dd8da33c15e50076e0703e678895973aba",
+    "https://danigm11.github.io/Pokedex/assets/Images/fighting.png": "46e8c58b289b9c290ac577bbd9262398ec0d87b6",
+    "https://danigm11.github.io/Pokedex/assets/Images/fire.png": "304a64aed524a03889271e34f26f0c73a721ecc8",
+    "https://danigm11.github.io/Pokedex/assets/Images/flying.png": "509b6557e8f90ceae240a7a00956b643bb13b7c6",
+    "https://danigm11.github.io/Pokedex/assets/Images/ghost.png": "24cc7bb940338f97d3c9fda5c0fde12bec901d45",
+    "https://danigm11.github.io/Pokedex/assets/Images/grass.png": "ab306fb6064472e269070cd1e07113e3f8de6912",
+    "https://danigm11.github.io/Pokedex/assets/Images/ground.png": "575ed5dbf198ef86b78855e92720e2538a9c32e0",
+    "https://danigm11.github.io/Pokedex/assets/Images/ice.png": "9321d8a7407fdf8b18fed0ea398b4e9181ec3486",
+    "https://danigm11.github.io/Pokedex/assets/Images/noche.png": "957fd208449f1a87b6de7c9c3122688674802da4",
+    "https://danigm11.github.io/Pokedex/assets/Images/normal.png": "c282e52d14a52792d5ecbfe19fadc185873f33fb",
+    "https://danigm11.github.io/Pokedex/assets/Images/physical.png": "3e464b07deb7d2e22f7f7012185921d82ff8562f",
+    "https://danigm11.github.io/Pokedex/assets/Images/poison.png": "5f768ba1fe0a0692bf31832924ed780cdeda6cdd",
+    "https://danigm11.github.io/Pokedex/assets/Images/pokeball.gif": "00663629d925e41755815f0c68a1c916b9a84ac6",
+    "https://danigm11.github.io/Pokedex/assets/Images/pokemon.png": "64a6e3e289d347c23db1f8565b729be30cd56b2e",
+    "https://danigm11.github.io/Pokedex/assets/Images/psychic.png": "3dbb4b2837bfa0029ef77f6ab0d828eb88bc0299",
+    "https://danigm11.github.io/Pokedex/assets/Images/rock.png": "c96b26b5c8bfd2ee5b02d9eb25487d637b4c5496",
+    "https://danigm11.github.io/Pokedex/assets/Images/special.png": "acdf0e33adc079c5998a312adc8870bc737670c6",
+    "https://danigm11.github.io/Pokedex/assets/Images/status.png": "65c97362a8010531fc7e61eb60fc28d5699c18f1",
+    "https://danigm11.github.io/Pokedex/assets/Images/steel.png": "bf82bf77db905733adb5c9a2ada07db7443c5e20",
+    "https://danigm11.github.io/Pokedex/assets/Images/water.png": "6a83b135d9d5f0e65394976bcf53f7e93b08c456",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "https://danigm11.github.io/Pokedex/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "https://danigm11.github.io/Pokedex/assets/tablaDeTipos.json": "fb5d402b0f6af121ae630c82a7c2e3e50d9ce0ce",
+    "https://danigm11.github.io/Pokedex/assets/traducciones.json": "cf5db63e673bc80993c244a2f88b3439e4abe10b",
+    "https://danigm11.github.io/Pokedex/favicon.ico": "3b4c99c041fa96cf43ec9eada18fa84578e89d1c",
+    "https://danigm11.github.io/Pokedex/index.html": "463fd27b4dbc3466659824709b60437bc8ef9f22",
+    "https://danigm11.github.io/Pokedex/main.03dc1bc7ff5a53ca.js": "e3797bc98d021fe8153eef12c0724fe0b3dcae46",
+    "https://danigm11.github.io/Pokedex/manifest.webmanifest": "e3e36501aab6ae70302508e7d9bdf2b0e9a6f31a",
+    "https://danigm11.github.io/Pokedex/polyfills.723be2771ac514b8.js": "3b8cea478427c5e81bee0d1e5e4c0bc191929bed",
+    "https://danigm11.github.io/Pokedex/runtime.091769b3e6325dd0.js": "b8c422f8047b83eaaf5f3af6ca6d8d87565078d6",
+    "https://danigm11.github.io/Pokedex/styles.4edb9aaaef5f3db7.css": "b021b21c3ee02ecb4b04af4d41d629c30e8376fa"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
