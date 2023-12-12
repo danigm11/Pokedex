@@ -33,17 +33,15 @@ export class ListaPokemonComponent implements OnInit {
 }
 
 toggleDarkTheme(): void {
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   if (localStorage.getItem('theme') == 'dark') {
     document.body.classList.remove('dark-theme');
-    document.body.classList.toggle('light-theme', prefersLight);
+    document.body.classList.toggle('light-theme');
     localStorage.setItem('theme', 'light');
   } else {
     
     document.body.classList.remove('light-theme');
-    document.body.classList.toggle('dark-theme', prefersDark);
+    document.body.classList.toggle('dark-theme');
     localStorage.setItem('theme', 'dark');
     
   }
