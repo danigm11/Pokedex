@@ -11,15 +11,14 @@ export class AppComponent {
   }
 
 setTheme(): void {
-const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
 if (localStorage.getItem('theme') == 'light') {
 
-  document.body.classList.toggle('light-theme', prefersLight);
+  document.body.classList.toggle('light-theme');
 
 } else {
   
-  document.body.classList.toggle('dark-theme', !prefersLight);
+  document.body.classList.toggle('dark-theme');
 }
 }
 }
