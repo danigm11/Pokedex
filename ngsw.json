@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1702225117728,
+  "timestamp": 1702350084346,
   "index": "https://danigm11.github.io/Pokedex/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://danigm11.github.io/Pokedex/favicon.ico",
         "https://danigm11.github.io/Pokedex/index.html",
-        "https://danigm11.github.io/Pokedex/main.2e2238e9c8817524.js",
+        "https://danigm11.github.io/Pokedex/main.4842aee011302e4b.js",
         "https://danigm11.github.io/Pokedex/manifest.webmanifest",
         "https://danigm11.github.io/Pokedex/polyfills.723be2771ac514b8.js",
         "https://danigm11.github.io/Pokedex/runtime.091769b3e6325dd0.js",
@@ -106,8 +106,8 @@
     "https://danigm11.github.io/Pokedex/assets/tablaDeTipos.json": "fb5d402b0f6af121ae630c82a7c2e3e50d9ce0ce",
     "https://danigm11.github.io/Pokedex/assets/traducciones.json": "cf5db63e673bc80993c244a2f88b3439e4abe10b",
     "https://danigm11.github.io/Pokedex/favicon.ico": "3b4c99c041fa96cf43ec9eada18fa84578e89d1c",
-    "https://danigm11.github.io/Pokedex/index.html": "0ffd2799bb7f42734c42a4506d97a529e62f9fc0",
-    "https://danigm11.github.io/Pokedex/main.2e2238e9c8817524.js": "136daf005fb3bb31d1dcb5e493aeecd25416d442",
+    "https://danigm11.github.io/Pokedex/index.html": "47dc50b88d14fdd1d96bfe67d96e34979a005921",
+    "https://danigm11.github.io/Pokedex/main.4842aee011302e4b.js": "29f4700fc160c1f2917a0bd16e0e9e6865b52332",
     "https://danigm11.github.io/Pokedex/manifest.webmanifest": "e3e36501aab6ae70302508e7d9bdf2b0e9a6f31a",
     "https://danigm11.github.io/Pokedex/polyfills.723be2771ac514b8.js": "3b8cea478427c5e81bee0d1e5e4c0bc191929bed",
     "https://danigm11.github.io/Pokedex/runtime.091769b3e6325dd0.js": "b8c422f8047b83eaaf5f3af6ca6d8d87565078d6",
