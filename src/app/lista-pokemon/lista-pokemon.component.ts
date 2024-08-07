@@ -95,10 +95,36 @@ toggleDarkTheme(): void {
         break;
       }
       case 5: {
-        this.numeroInicial = 1;
-        this.numeroPokemon = 493;
+        this.numeroInicial = 494;
+        this.numeroPokemon = 649;
         break;
       }
+      case 6: {
+        this.numeroInicial = 650;
+        this.numeroPokemon = 721;
+        break;
+      }
+      case 7: {
+        this.numeroInicial = 722;
+        this.numeroPokemon = 809;
+        break;
+      }
+      case 8: {
+        this.numeroInicial = 810;
+        this.numeroPokemon = 905;
+        break;
+      }
+      case 9: {
+        this.numeroInicial = 906;
+        this.numeroPokemon = 1025;
+        break;
+      }
+      case 10: {
+        this.numeroInicial = 1;
+        this.numeroPokemon = 1025;
+        break;
+      }
+      
     }
     this.listaMostrada = this.listaTodo.filter(
       (Pokemon) =>

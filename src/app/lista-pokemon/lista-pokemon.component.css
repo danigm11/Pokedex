@@ -199,7 +199,18 @@ button {
 .Gen4 {
   background: linear-gradient(to right, rgb(93, 20, 220) 0%, rgb(93, 20, 220) 50%, rgb(255, 0, 208) 50%, rgb(255, 0, 208) 100%);
 }
-
+.Gen5 {
+  background: linear-gradient(to right, rgb(204, 202, 202) 0%, rgb(203, 203, 203) 50%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 100%);
+}.Gen6 {
+  background: linear-gradient(to right, rgb(57, 20, 220) 0%, rgb(57, 20, 220) 50%, rgb(210, 24, 43) 50%, rgb(210, 24, 43) 100%);
+}.Gen7 {
+  background: linear-gradient(to right, rgb(251, 254, 245) 0%, rgb(239, 239, 50) 50%, rgb(94, 9, 155) 50%, rgb(255, 0, 208) 100%);
+}.Gen8 {
+  background: linear-gradient(to right, rgb(20, 163, 220) 0%, rgb(20, 163, 220) 50%, rgb(203, 49, 18) 50%, rgb(203, 49, 18) 100%);
+}
+.Gen9 {
+  background: linear-gradient(to right, rgb(220, 20, 63) 0%, rgb(220, 20, 63) 50%, rgb(177, 20, 220)50%, rgb(177, 20, 220) 100%);
+}
 .Todas {
   background: linear-gradient(to right, rgb(153, 152, 152) 0%, rgb(153, 152, 152) 50%, black 50%, black 100%);
 }
