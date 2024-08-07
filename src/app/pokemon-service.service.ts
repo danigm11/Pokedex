@@ -26,7 +26,7 @@ export class PokemonServiceService {
   getPokemons(): Observable<Pokemon[]> {
     var observables: Observable<Pokemon>[] = [];
 
-    for (let i = 1; i <= 493; i++) {
+    for (let i = 1; i <= 1025; i++) {
       observables.push(this.getPokemon(i));
     }
     return forkJoin(observables);
@@ -77,7 +77,7 @@ export class PokemonServiceService {
       ).flavor_text;
     }else{
        desc = species.flavor_text_entries.find(
-        (entry: any) => entry.language.name === 'en' && entry.version.name === 'x'
+        (entry: any) => entry.language.name === 'en' /*&& entry.version.name === 'x'*/
       ).flavor_text;
     }
     
@@ -122,7 +122,7 @@ export class PokemonServiceService {
       listaPokemonsInicial.push(poke);
     });
     for (let evo of cadena.chain.evolves_to) {
-      if (this.obtenerNumeroDesdeURL(evo.species.url) <= 493) {
+      if (this.obtenerNumeroDesdeURL(evo.species.url) <= 1025) {
         this.getPokemon(this.obtenerNumeroDesdeURL(evo.species.url)).subscribe(
           (nuevoPokemon: Pokemon) => {
             poke = nuevoPokemon;
@@ -145,7 +145,7 @@ export class PokemonServiceService {
         trigg = [];
       }
       for (let evo2 of evo.evolves_to) {
-        if (this.obtenerNumeroDesdeURL(evo2.species.url) <= 493) {
+        if (this.obtenerNumeroDesdeURL(evo2.species.url) <= 1025) {
           this.getPokemon(
             this.obtenerNumeroDesdeURL(evo2.species.url)
           ).subscribe((nuevoPokemon: Pokemon) => {
